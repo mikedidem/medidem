@@ -18,7 +18,7 @@ My work bridges research and engineering, translating advanced machine learning 
 🔭 Vision: Turning elevation data and hydrologic signal into decisions that protect the ground and water beneath us — where physics, geospatial AI, and environmental stewardship meet.
 </p>
 
-📄 Curriculum Vitae: [View CV](Edidem_Michael_CV_2026.pdf)
+📄 Curriculum Vitae: [View CV](cv/Edidem_Michael_CV_adademic_2026.pdf)
 
 <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
   <img src="images/research-framework.svg" alt="Geospatial AI research framework: hydrologic modeling, physics-guided ML, remote sensing and DEM, decision-support" style="max-width: 900px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
