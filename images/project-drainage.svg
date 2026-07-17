@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="dcSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef6ec"/>
+      <stop offset="100%" stop-color="#f7fbf2"/>
+    </linearGradient>
+    <linearGradient id="dcTerrain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fb98a"/>
+      <stop offset="100%" stop-color="#6fa46a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="300" fill="url(#dcSky)"/>
+  <rect x="0" y="120" width="500" height="180" fill="url(#dcTerrain)"/>
+
+  <!-- contour lines -->
+  <g stroke="#3fae7c" stroke-width="1.4" fill="none" opacity="0.5">
+    <path d="M0 150 Q 250 130 500 150"/>
+    <path d="M0 175 Q 250 158 500 175"/>
+    <path d="M0 200 Q 250 185 500 200"/>
+  </g>
+
+  <!-- stream -->
+  <path d="M0 230 C 100 210, 180 250, 260 225 S 400 190, 500 210" fill="none" stroke="#2a78d6" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- road crossing -->
+  <rect x="215" y="120" width="70" height="180" fill="#52514e" opacity="0.85"/>
+  <line x1="250" y1="120" x2="250" y2="300" stroke="#fcfcfb" stroke-width="4" stroke-dasharray="14 12"/>
+
+  <!-- culvert marker at crossing -->
+  <circle cx="250" cy="221" r="16" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+  <circle cx="250" cy="221" r="6" fill="#2a78d6"/>
+
+  <!-- detection bounding box -->
+  <rect x="205" y="196" width="90" height="50" fill="none" stroke="#eb6834" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="205" y="190" font-family="ui-monospace, monospace" font-size="13" fill="#eb6834" font-weight="700">crossing: 0.94</text>
+</svg>

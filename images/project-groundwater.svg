@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="gwSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf4fb"/>
+      <stop offset="100%" stop-color="#dbe9f4"/>
+    </linearGradient>
+    <linearGradient id="gwGround" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9a577"/>
+      <stop offset="100%" stop-color="#a2815a"/>
+    </linearGradient>
+    <linearGradient id="gwAquifer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3987e5"/>
+      <stop offset="100%" stop-color="#2a78d6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="300" fill="url(#gwSky)"/>
+  <rect x="0" y="130" width="500" height="170" fill="url(#gwGround)"/>
+
+  <!-- water table line -->
+  <line x1="0" y1="190" x2="500" y2="190" stroke="#0d3b66" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+  <text x="10" y="182" font-family="system-ui, sans-serif" font-size="12" fill="#0d3b66" opacity="0.75">water table</text>
+
+  <!-- aquifer -->
+  <rect x="0" y="190" width="500" height="70" fill="url(#gwAquifer)" opacity="0.55"/>
+  <rect x="0" y="260" width="500" height="40" fill="url(#gwGround)"/>
+
+  <!-- wells / boreholes -->
+  <g stroke="#52514e" stroke-width="6" stroke-linecap="round">
+    <line x1="120" y1="130" x2="120" y2="270"/>
+    <line x1="250" y1="130" x2="250" y2="285"/>
+    <line x1="380" y1="130" x2="380" y2="260"/>
+  </g>
+  <g fill="#2a78d6">
+    <circle cx="120" cy="130" r="9"/>
+    <circle cx="250" cy="130" r="9"/>
+    <circle cx="380" cy="130" r="9"/>
+  </g>
+
+  <!-- simulated groundwater contour arcs -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.55">
+    <path d="M60 220 Q 250 200 440 220"/>
+    <path d="M60 235 Q 250 218 440 235"/>
+    <path d="M60 250 Q 250 236 440 250"/>
+  </g>
+</svg>

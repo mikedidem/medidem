@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf4fb"/>
+      <stop offset="100%" stop-color="#f7fbf2"/>
+    </linearGradient>
+    <linearGradient id="band1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fb98a"/>
+      <stop offset="100%" stop-color="#6fa46a"/>
+    </linearGradient>
+    <linearGradient id="band2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9a577"/>
+      <stop offset="100%" stop-color="#b08a5c"/>
+    </linearGradient>
+    <linearGradient id="band3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a9835a"/>
+      <stop offset="100%" stop-color="#8c6a44"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="300" fill="url(#sky1)"/>
+
+  <!-- soil strata -->
+  <rect x="0" y="150" width="500" height="45" fill="url(#band1)"/>
+  <rect x="0" y="195" width="500" height="50" fill="url(#band2)"/>
+  <rect x="0" y="245" width="500" height="55" fill="url(#band3)"/>
+
+  <!-- segmentation grid overlay -->
+  <g stroke="#2a78d6" stroke-width="1.4" stroke-dasharray="5 4" opacity="0.55">
+    <line x1="0" y1="150" x2="500" y2="150"/>
+    <line x1="100" y1="150" x2="100" y2="300"/>
+    <line x1="200" y1="150" x2="200" y2="300"/>
+    <line x1="300" y1="150" x2="300" y2="300"/>
+    <line x1="400" y1="150" x2="400" y2="300"/>
+  </g>
+
+  <!-- highlighted segmented cell -->
+  <rect x="200" y="195" width="100" height="50" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+  <rect x="200" y="195" width="100" height="50" fill="#2a78d6" opacity="0.12"/>
+
+  <!-- terrain skyline -->
+  <path d="M0 150 C 60 130, 120 160, 180 140 S 300 120, 360 145 S 460 130, 500 150 L500 150 L0 150 Z" fill="#f7fbf2"/>
+  <path d="M0 150 C 60 130, 120 160, 180 140 S 300 120, 360 145 S 460 130, 500 150" fill="none" stroke="#008300" stroke-width="2"/>
+</svg>

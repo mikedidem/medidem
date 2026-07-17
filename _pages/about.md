@@ -79,7 +79,7 @@ My work bridges research and engineering, translating advanced machine learning 
 
 # 🚀 Selected Projects
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">GeoFewLab</div><img src='images/500x300.png' alt="Soil Swin-UNet" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">GeoFewLab</div><img src='images/project-soil.svg' alt="Soil Swin-UNet" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **Soil Swin-UNet**
@@ -90,7 +90,7 @@ Deep learning–based soil and land-surface segmentation using Swin-UNet archite
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Nebraska</div><img src='images/500x300.png' alt="Groundwater Simulation" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Nebraska</div><img src='images/project-groundwater.svg' alt="Groundwater Simulation" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **Groundwater Simulation & Prediction**
@@ -101,7 +101,7 @@ Large-scale groundwater modeling and scenario-based prediction for Nebraska, int
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CONUS</div><img src='images/500x300.png' alt="Drainage Crossing Detection" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CONUS</div><img src='images/project-drainage.svg' alt="Drainage Crossing Detection" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **GeoAI-Based Drainage Crossing Detection**

@@ -68,6 +68,6 @@ bundle exec jekyll serve
 ## Not yet filled in
 
 - Real profile photo (currently an initials placeholder)
-- Real project screenshots/figures (currently a gray placeholder image)
+- Real project screenshots/figures (currently custom SVG illustrations, not actual figures)
 - Full education history, honors/awards, invited talks — the template supports these sections but they were left out rather than filled with invented dates
 - Google Scholar, LinkedIn, ORCID — add to `_config.yml` (`author.googlescholar`, `author.linkedin`, `author.orcid`) once you have them
