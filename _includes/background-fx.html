@@ -1,0 +1,158 @@
+<!-- Drifting particle background: canvas animation technique adapted from
+     rayford295.github.io (public client-side source), reskinned with this
+     site's blue/green palette. -->
+<canvas id="bg-fx"></canvas>
+<script>
+(() => {
+  const canvas = document.getElementById("bg-fx");
+  const ctx = canvas.getContext("2d");
+
+  const cfg = {
+    count: 12,
+    minSize: 14,
+    maxSize: 38,
+    fallSpeed: 0.18,
+    drift: 0.28,
+    rotateSpeed: 0.0018,
+    alpha: 0.20,
+    palette: [
+      ["#2a78d6", "#008300"],  // blue -> terrain green
+      ["#1baf7a", "#2a78d6"],  // teal -> blue
+      ["#6da7ec", "#3fae7c"]   // pale blue -> pale green
+    ],
+    lowPower: true
+  };
+
+  Object.assign(canvas.style, {
+    position: "fixed",
+    inset: "0",
+    zIndex: "-1",
+    pointerEvents: "none"
+  });
+  document.body.style.position = "relative";
+
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+
+  function resize() {
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    ctx.imageSmoothingEnabled = true;
+  }
+
+  function makeGradient(size, c1, c2) {
+    const g = ctx.createLinearGradient(-size, -size, size, size);
+    g.addColorStop(0, c1);
+    g.addColorStop(1, c2);
+    return g;
+  }
+
+  class Shard {
+    constructor(initial = true) { this.reset(initial); }
+
+    reset(initial) {
+      this.size = rand(cfg.minSize, cfg.maxSize);
+      this.x = rand(0, window.innerWidth);
+      this.y = initial ? rand(0, window.innerHeight) : -rand(60, 220);
+      this.vx = rand(-0.12, 0.12) * cfg.drift;
+      this.vy = rand(cfg.fallSpeed * 0.7, cfg.fallSpeed * 1.6);
+      this.rot = rand(0, Math.PI * 2);
+      this.vr = rand(-1, 1) * cfg.rotateSpeed;
+      const [c1, c2] = pick(cfg.palette);
+      this.c1 = c1;
+      this.c2 = c2;
+      this.type = Math.random() < 0.7 ? 0 : 1;
+      this.fold = rand(0.25, 0.8);
+    }
+
+    step(dt) {
+      this.rot += this.vr * (dt * 60);
+      this.x += (this.vx * (dt * 60)) + Math.sin(this.rot * 0.8) * 0.05;
+      this.y += this.vy * (dt * 60);
+      if (this.y - this.size > window.innerHeight + 50) this.reset(false);
+      if (this.x < -80) this.x = window.innerWidth + 80;
+      if (this.x > window.innerWidth + 80) this.x = -80;
+    }
+
+    draw() {
+      const s = this.size;
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rot);
+      ctx.globalAlpha = cfg.alpha;
+      ctx.fillStyle = makeGradient(s, this.c1, this.c2);
+      ctx.strokeStyle = "rgba(0,0,0,0.05)";
+      ctx.lineWidth = 1;
+
+      ctx.beginPath();
+      if (this.type === 0) {
+        ctx.moveTo(-s * 0.95, -s * 0.15);
+        ctx.lineTo(s * 0.95, 0);
+        ctx.lineTo(-s * 0.25, s * 0.85);
+      } else {
+        ctx.moveTo(0, -s);
+        ctx.lineTo(s * 0.9, 0);
+        ctx.lineTo(0, s);
+        ctx.lineTo(-s * 0.6, 0);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.globalAlpha = cfg.alpha * 0.55;
+      ctx.fillStyle = "rgba(255,255,255,0.35)";
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.12, -s * 0.12);
+      ctx.lineTo(s * this.fold, 0);
+      ctx.lineTo(-s * 0.06, s * 0.35);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+  }
+
+  let shards = [];
+  function init() {
+    shards = [];
+    for (let i = 0; i < cfg.count; i++) shards.push(new Shard(true));
+  }
+
+  let last = performance.now();
+  let acc = 0;
+
+  function loop(now) {
+    const rawDt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    if (cfg.lowPower) {
+      acc += rawDt;
+      if (acc < (1 / 30)) {
+        requestAnimationFrame(loop);
+        return;
+      }
+    }
+    const dt = cfg.lowPower ? acc : rawDt;
+    acc = 0;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of shards) {
+      p.step(dt);
+      p.draw();
+    }
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("resize", () => {
+    resize();
+    init();
+  });
+
+  resize();
+  init();
+  requestAnimationFrame(loop);
+})();
+</script>
