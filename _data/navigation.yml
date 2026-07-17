@@ -6,11 +6,29 @@ main:
   - title: "Research Interests"
     url: "/#-research-interests"
 
+  - title: "Education"
+    url: "/#-education"
+
+  - title: "Experience"
+    url: "/#-experience"
+
+  - title: "Research Experience"
+    url: "/#-research-experience"
+
   - title: "Selected Projects"
     url: "/#-selected-projects"
 
   - title: "Publications"
     url: "/#-publications"
+
+  - title: "Presentations"
+    url: "/#-conference-presentations"
+
+  - title: "Honors and Awards"
+    url: "/#-honors-and-awards"
+
+  - title: "Affiliations"
+    url: "/#-professional-affiliations"
 
   - title: "Technical Expertise"
     url: "/#-technical-expertise"
