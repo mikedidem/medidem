@@ -44,7 +44,7 @@ My work bridges research and engineering, translating advanced machine learning 
 # 💼 Experience
 
 **Research Assistant / Teaching Assistant**, Southern Illinois University Carbondale &nbsp;*08/2022 – Present*
-- Developing large-scale geospatial ML pipelines for mapping and environmental modeling using Python, MODFLOW, and GIS tools.
+- Developing large-scale geospatial ML pipelines for mapping and environmental modeling using Python and GIS tools.
 - Built Theory-Guided Neural Network (TgNN) surrogate models for scalable spatial simulation, reducing computational cost while preserving physical consistency.
 - Implemented deep learning architectures (U-Net, CM-UNet, Faster R-CNN, YOLOv5, Transformer-based models) for elevation-derived hydrographic feature extraction and classification.
 - Conducted TauDEM-based topographic and stream network analysis for hydrologic connectivity studies in agricultural watersheds.
