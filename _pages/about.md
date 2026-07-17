@@ -122,11 +122,71 @@ End-to-end deep learning pipelines detecting drainage crossings from elevation-d
 - Networking Public Health Emergency Facilities with Incidence of Road Accident in Uyo, Udoh, I.B., **Edidem, M.I.**, Eyofen, I.E., 2018
 
 # 🎤 Conference Presentations
-- Accuracy Is Not Enough: Evaluating Physical Consistency in Deep Learning-Based Groundwater Model Surrogates — **Edidem, M.**, Li, R., Kharazi, P. — *AWRA Geospatial Water Technology Conference*, Niagara Falls, NY, May 2026
-- Towards a Comprehensive Culvert Detection and Classification Dataset for Enhanced Infrastructure Monitoring — **Edidem, M.**, Li, R., Wang, G., Rekabdar, B. — *AAG Annual Meeting*, Detroit, MI, Mar. 2025
-- Exploration of TPU Architectures for the Optimized Transformer in Drainage Crossing Detection — Nazeri, A. et al., **Edidem, M.**, Li, R., Shu, T. — *IEEE International Conference on Big Data*, Washington, DC, Dec. 2024
-- Classification of Drainage Crossings Based on Advanced Deep Learning Models and High-Resolution Digital Elevation Models — **Edidem, M.**, Li, R., Wang, G., Rekabdar, B., Xu, B. — *AGU Fall Meeting*, Washington, DC, Dec. 2024
-- Geospatial AI Solutions for Locating Drainage Barriers in Elevation-derived Hydrographic Mapping — **Edidem, M.**, Li, R., Wu, D., Wang, G. — *AAG Annual Meeting*, Honolulu, HI, Apr. 2024
+
+<ul class="presentation-timeline">
+  <li class="presentation-year">
+    <span class="presentation-year-label">2026</span>
+    <ul class="presentation-items">
+      <li>
+        <strong>AWRA Geospatial Water Technology Conference</strong>, Niagara Falls, NY, May 18&#8211;20, 2026.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Accuracy Is Not Enough: Evaluating Physical Consistency in Deep Learning-Based Groundwater Model Surrogates</em> &#8212;
+            <strong>Edidem, M.</strong>, Li, R., Kharazi, P.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li class="presentation-year">
+    <span class="presentation-year-label">2025</span>
+    <ul class="presentation-items">
+      <li>
+        <strong>AAG Annual Meeting</strong>, Detroit, MI, March 24&#8211;28, 2025.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Towards a Comprehensive Culvert Detection and Classification Dataset for Enhanced Infrastructure Monitoring</em> &#8212;
+            <strong>Edidem, M.</strong>, Li, R., Wang, G., Rekabdar, B.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li class="presentation-year">
+    <span class="presentation-year-label">2024</span>
+    <ul class="presentation-items">
+      <li>
+        <strong>IEEE International Conference on Big Data</strong>, Washington, DC, December 15&#8211;18, 2024.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Exploration of TPU Architectures for the Optimized Transformer in Drainage Crossing Detection</em> &#8212;
+            Nazeri, A. et al., <strong>Edidem, M.</strong>, Li, R., Shu, T.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>AGU Fall Meeting</strong>, Washington, DC, December 9&#8211;13, 2024.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Classification of Drainage Crossings Based on Advanced Deep Learning Models and High-Resolution Digital Elevation Models</em> &#8212;
+            <strong>Edidem, M.</strong>, Li, R., Wang, G., Rekabdar, B., Xu, B.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>AAG Annual Meeting</strong>, Honolulu, HI, April 16&#8211;20, 2024.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Geospatial AI Solutions for Locating Drainage Barriers in Elevation-derived Hydrographic Mapping</em> &#8212;
+            <strong>Edidem, M.</strong>, Li, R., Wu, D., Wang, G.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 # 🎖 Honors and Awards
 - SIUC Outstanding Thesis Award (University-wide), *2025–2026*
