@@ -30,7 +30,7 @@ My work bridges research and engineering, translating advanced machine learning 
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Geospatial AI</span>
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Spatiotemporal Deep Learning</span>
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Physics-Guided ML</span>
-  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Hydrologic Modeling (MODFLOW)</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Hydrologic Modeling</span>
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Elevation-Derived Hydrography</span>
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Remote Sensing &amp; LiDAR</span>
   <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">GeoAI Decision-Support</span>
