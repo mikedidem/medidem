@@ -14,15 +14,27 @@ I am **Michael Edidem**, a PhD Researcher in Geographic Information Systems and 
 
 My work bridges research and engineering, translating advanced machine learning methods into reproducible, high-performance geospatial pipelines.
 
+<p style="font-style: italic; color: #52514e; border-left: 4px solid #2a78d6; padding-left: 12px; margin-top: 10px;">
+🔭 Vision: Turning elevation data and hydrologic signal into decisions that protect the ground and water beneath us — where physics, geospatial AI, and environmental stewardship meet.
+</p>
+
 📄 Curriculum Vitae: [View CV](Edidem_Michael_CV_2026.pdf)
 
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+  <img src="images/research-framework.svg" alt="Geospatial AI research framework: hydrologic modeling, physics-guided ML, remote sensing and DEM, decision-support" style="max-width: 900px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+</div>
+
 # 🌍 Research Interests
-- Geospatial AI and spatiotemporal deep learning
-- Physics-guided and theory-guided machine learning
-- Groundwater and surface water modeling (MODFLOW)
-- Elevation-derived hydrography and drainage network analysis
-- Remote sensing, LiDAR, and DEM-based modeling
-- GeoAI-enabled decision-support systems for environmental sustainability
+
+<div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Geospatial AI</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Spatiotemporal Deep Learning</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Physics-Guided ML</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Hydrologic Modeling (MODFLOW)</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Elevation-Derived Hydrography</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">Remote Sensing &amp; LiDAR</span>
+  <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:#eaf1fb; color:#2a78d6; border:1px solid #cfe0f1; font-size:0.92em; font-weight:500;">GeoAI Decision-Support</span>
+</div>
 
 # 📖 Education
 - **PhD, Geographic Information Systems and Environmental Modeling** — Southern Illinois University Carbondale, *Expected 2027*
