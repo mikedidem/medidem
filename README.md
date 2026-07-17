@@ -62,11 +62,3 @@ bundle exec jekyll serve
 
 - Email: edidemichael@gmail.com
 - GitHub: [mikedidem](https://github.com/mikedidem)
-
----
-
-## Not yet filled in
-
-- Real profile photo (currently an initials placeholder)
-- Real project screenshots/figures (currently custom SVG illustrations, not actual figures)
-- Google Scholar, LinkedIn, ORCID — add to `_config.yml` (`author.googlescholar`, `author.linkedin`, `author.orcid`) once you have them
