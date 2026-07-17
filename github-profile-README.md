@@ -3,7 +3,7 @@
 PhD Researcher | Spatial AI & Geospatial Machine Learning Engineer
 Southern Illinois University Carbondale
 
-🌐 Portfolio: https://mikedidem.github.io/portfolio <!-- update once deployed -->
+🌐 Portfolio: https://mikedidem.github.io/medidem/
 
 I work at the intersection of **Geospatial AI**, **hydrologic and environmental modeling**, and
 **physics-guided machine learning**, developing scalable, data-driven systems for analyzing

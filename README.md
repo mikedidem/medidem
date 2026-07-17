@@ -22,4 +22,4 @@ then visit `http://localhost:8000`.
 
 ## Deploying
 
-Intended target: a new `mikedidem/portfolio` GitHub repo with GitHub Pages enabled (Settings → Pages → deploy from `main` branch, root folder). Once deployed, update the placeholder site link at the top of `github-profile-README.md` (and push that file to the `mikedidem/mikedidem` profile repo).
+Live at: https://mikedidem.github.io/medidem/ — deployed via GitHub Pages from the `master` branch, root folder, on the `mikedidem/medidem` repo. Push to `master` to update the live site.
