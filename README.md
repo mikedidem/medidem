@@ -47,16 +47,6 @@ bundle exec jekyll serve
 # Open http://localhost:4000
 ```
 
-## Structure
-
-- `_config.yml` — site title, author bio/contact info, social links
-- `_data/navigation.yml` — top nav links (anchors into the single About page)
-- `_pages/about.md` — all page content: bio, research interests, projects, publications, technical expertise
-- `images/avatar.svg` — placeholder initials avatar; swap for a real photo (update `author.avatar` in `_config.yml` to match)
-- `images/500x300.png` — placeholder project card image; swap for real project screenshots/figures
-- `_layouts/`, `_includes/`, `_sass/`, `assets/` — template internals, not usually edited directly
-- `github-profile-README.md` — draft content for the `mikedidem/mikedidem` GitHub profile README, kept in sync with this site
-
 ## Contributors
 
 | Contributor | Role |
