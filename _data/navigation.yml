@@ -1,34 +1,34 @@
 # main links links
 main:
   - title: "About Me"
-    url: "/#about-me"
+    url: "#about-me"
 
   - title: "Research Interests"
-    url: "/#-research-interests"
+    url: "#-research-interests"
 
   - title: "Education"
-    url: "/#-education"
+    url: "#-education"
 
   - title: "Experience"
-    url: "/#-experience"
+    url: "#-experience"
 
   - title: "Research Experience"
-    url: "/#-research-experience"
+    url: "#-research-experience"
 
   - title: "Selected Projects"
-    url: "/#-selected-projects"
+    url: "#-selected-projects"
 
   - title: "Publications"
-    url: "/#-publications"
+    url: "#-publications"
 
   - title: "Presentations"
-    url: "/#-conference-presentations"
+    url: "#-conference-presentations"
 
   - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
+    url: "#-honors-and-awards"
 
   - title: "Affiliations"
-    url: "/#-professional-affiliations"
+    url: "#-professional-affiliations"
 
   - title: "Technical Expertise"
-    url: "/#-technical-expertise"
+    url: "#-technical-expertise"
