@@ -10,6 +10,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+# 🗨 About Me
+
 I am **Michael Edidem**, a PhD Researcher in Geographic Information Systems and Environmental Modeling at **Southern Illinois University Carbondale**. I work at the intersection of **Geospatial AI**, **hydrologic and environmental modeling**, and **physics-guided machine learning** — developing scalable, data-driven systems for analyzing groundwater–surface water interactions, elevation-derived hydrography, and environmental decision-support workflows.
 
 My work bridges research and engineering, translating advanced machine learning methods into reproducible, high-performance geospatial pipelines.
