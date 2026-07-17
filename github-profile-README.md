@@ -13,7 +13,7 @@
 - 📚 PhD Researcher in Geographic Information Systems and Environmental Modeling, Southern Illinois University Carbondale — M.S. Geography & Environmental Resources (Spec. Geospatial AI), 2024 — B.S. Geoinformatics and Surveying, University of Uyo, Nigeria, 2018
 - 🌎 I'm open to **collaborations** across GIScience, GeoAI, hydrology, and environmental sustainability
 - 💬 Ask me about **Geospatial AI**, **physics-guided ML**, **LiDAR/DEM analysis**, or **drainage & hydrography detection**
-- ✨ *Vision:* **"Turning elevation data and hydrologic signal into decisions that protect the ground and water beneath us."**
+- ✨ *Vision:* **"Turning elevation data and hydrologic signal into decisions that protect the ground and water beneath us — where physics, geospatial AI, and environmental stewardship meet."**
 - 📄 [View my CV](https://mikedidem.github.io/medidem/cv/Edidem_Michael_CV_adademic_2026.pdf)
 - 📫 Reach me at: `edidemichael@gmail.com`
 
