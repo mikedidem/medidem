@@ -20,14 +20,14 @@ This is the source code for [mikedidem.github.io/medidem](https://mikedidem.gith
 ### Research Interests
 
 - Spatial AI · Spatiotemporal Deep Learning · Physics-Guided Machine Learning
-- Groundwater & Surface Water Modeling (MODFLOW) · Elevation-Derived Hydrography
+- Hydrologic Modeling · Elevation-Derived Hydrography
 - Remote Sensing · LiDAR / DEM-Based Modeling · GeoAI for Environmental Sustainability
 
 ### Education
 
-- **PhD Researcher, Spatial AI & Geospatial Machine Learning** — Southern Illinois University Carbondale
-
-*(Full education history not yet added — see "Not yet filled in" below.)*
+- **PhD, Geographic Information Systems and Environmental Modeling** — Southern Illinois University Carbondale, *Expected 2027*
+- **M.S., Geography and Environmental Resources** (Spec: Geospatial AI) — Southern Illinois University Carbondale, *2024*
+- **B.S., Geoinformatics and Surveying** — University of Uyo, Nigeria, *2018*
 
 ---
 
@@ -69,5 +69,4 @@ bundle exec jekyll serve
 
 - Real profile photo (currently an initials placeholder)
 - Real project screenshots/figures (currently custom SVG illustrations, not actual figures)
-- Full education history, honors/awards, invited talks — the template supports these sections but they were left out rather than filled with invented dates
 - Google Scholar, LinkedIn, ORCID — add to `_config.yml` (`author.googlescholar`, `author.linkedin`, `author.orcid`) once you have them
