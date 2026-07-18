@@ -41,7 +41,7 @@ My work bridges research and engineering, translating advanced machine learning 
 # 📖 Education
 - **PhD, Geographic Information Systems and Environmental Modeling** — Southern Illinois University Carbondale, *Expected 2027*
 - **M.S., Geography and Environmental Resources** (Spec: Geospatial AI) — Southern Illinois University Carbondale, *2024*
-- **B.S., Geoinformatics and Surveying** — University of Uyo, Nigeria, *2018*
+- **B.S., Geoinformatics and Surveying** — University of Uyo, Nigeria, *2019*
 
 # 💼 Experience
 

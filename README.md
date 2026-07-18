@@ -27,7 +27,7 @@ This is the source code for [mikedidem.github.io/medidem](https://mikedidem.gith
 
 - **PhD, Geographic Information Systems and Environmental Modeling** — Southern Illinois University Carbondale, *Expected 2027*
 - **M.S., Geography and Environmental Resources** (Spec: Geospatial AI) — Southern Illinois University Carbondale, *2024*
-- **B.S., Geoinformatics and Surveying** — University of Uyo, Nigeria, *2018*
+- **B.S., Geoinformatics and Surveying** — University of Uyo, Nigeria, *2019*
 
 ---
 
