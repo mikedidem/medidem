@@ -1,0 +1,185 @@
+<!-- Dark mode: apply theme before paint to avoid flash -->
+<script>
+(function () {
+  var saved = localStorage.getItem('color-scheme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
+
+<!-- Dark mode: floating toggle button + circle-reveal transition -->
+<button id="dark-mode-toggle" class="dark-mode-fab" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+  <span class="fab-icon fab-sun">☀️</span>
+  <span class="fab-icon fab-moon">🌙</span>
+  <span class="fab-ripple"></span>
+</button>
+
+<style>
+/* ── Floating Action Button ── */
+.dark-mode-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
+  transition: transform 0.2s cubic-bezier(.34,1.56,.64,1),
+              box-shadow 0.2s ease,
+              background 0.3s ease;
+  overflow: hidden;
+  outline: none;
+}
+.dark-mode-fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+}
+.dark-mode-fab:active { transform: scale(0.96); }
+
+.fab-icon { line-height: 1; transition: opacity 0.2s, transform 0.3s; }
+.fab-sun  { display: inline; }
+.fab-moon { display: none; }
+
+/* Spin-swap animation on click */
+.dark-mode-fab.switching .fab-sun,
+.dark-mode-fab.switching .fab-moon {
+  animation: icon-spin 0.35s ease forwards;
+}
+@keyframes icon-spin {
+  0%   { transform: rotate(0deg) scale(1); opacity: 1; }
+  50%  { transform: rotate(180deg) scale(0); opacity: 0; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+[data-theme="dark"] .dark-mode-fab {
+  background: #1e2130;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.07);
+}
+[data-theme="dark"] .fab-sun  { display: none; }
+[data-theme="dark"] .fab-moon { display: inline; }
+
+/* ── View Transition: circle-reveal from click point ── */
+@keyframes vt-reveal {
+  from { clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%)); }
+  to   { clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%)); }
+}
+@keyframes vt-fadeout {
+  to { opacity: 0; }
+}
+::view-transition-new(root) {
+  animation: vt-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  z-index: 1;
+}
+::view-transition-old(root) {
+  animation: vt-fadeout 0.55s ease forwards;
+  z-index: 0;
+}
+
+/* Smooth CSS transition fallback (non-Chrome) */
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Dark theme colors ── */
+[data-theme="dark"] { background-color: #0f1117; color: #dde1e7; }
+[data-theme="dark"] body { background-color: #0f1117; color: #dde1e7; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
+[data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6 { color: #f0f4f8; }
+[data-theme="dark"] a { color: #7eb8f7; }
+[data-theme="dark"] a:visited { color: #a78bfa; }
+[data-theme="dark"] a:hover { color: #a8d4ff; }
+[data-theme="dark"] .masthead { background-color: #15181f; border-bottom-color: #2a2d3a; }
+[data-theme="dark"] .masthead a { color: #c9d1d9; }
+[data-theme="dark"] .masthead a:hover { color: #ffffff; }
+[data-theme="dark"] .greedy-nav { background: #15181f; }
+[data-theme="dark"] .greedy-nav .visible-links a { color: #c9d1d9; }
+[data-theme="dark"] .greedy-nav .visible-links a:hover { color: #ffffff; }
+[data-theme="dark"] .greedy-nav button { background-color: #15181f; }
+[data-theme="dark"] .greedy-nav button .navicon,
+[data-theme="dark"] .greedy-nav button .navicon::before,
+[data-theme="dark"] .greedy-nav button .navicon::after { background: #c9d1d9; }
+[data-theme="dark"] .hidden-links { background: #1e2130; border-color: #2a2d3a; }
+[data-theme="dark"] .hidden-links a { color: #c9d1d9; }
+[data-theme="dark"] .hidden-links a:hover { color: #ffffff; }
+[data-theme="dark"] .sidebar { background-color: #0f1117; }
+[data-theme="dark"] .author__name { color: #f0f4f8; }
+[data-theme="dark"] .author__bio { color: #8b95a1; }
+[data-theme="dark"] .author__urls { border-top-color: #2a2d3a; }
+[data-theme="dark"] .author__urls a { color: #7eb8f7; }
+[data-theme="dark"] .page__content { color: #dde1e7; }
+[data-theme="dark"] .page__content p, [data-theme="dark"] .page__content li { color: #dde1e7; }
+[data-theme="dark"] .page__content h1, [data-theme="dark"] .page__content h2,
+[data-theme="dark"] .page__content h3, [data-theme="dark"] .page__content h4 { color: #f0f4f8; }
+[data-theme="dark"] .page__content hr { border-color: #2a2d3a; }
+[data-theme="dark"] .page__content blockquote { border-left-color: #3b4252; color: #8b95a1; }
+[data-theme="dark"] code { background: #1e2130; color: #e2e8f0; border-color: #2a2d3a; }
+[data-theme="dark"] pre { background: #1e2130; border-color: #2a2d3a; }
+[data-theme="dark"] pre code { background: transparent; }
+[data-theme="dark"] table th { background: #1e2130; color: #f0f4f8; border-color: #2a2d3a; }
+[data-theme="dark"] table td { border-color: #2a2d3a; }
+[data-theme="dark"] table tr:nth-child(even) { background: #161820; }
+[data-theme="dark"] .paper-box { border-bottom-color: #2a2d3a; }
+[data-theme="dark"] .paper-box-text p, [data-theme="dark"] .paper-box-text li { color: #dde1e7; }
+[data-theme="dark"] .news-item { background: #1e2130; border-left-color: #4a9eff; box-shadow: 0 3px 8px rgba(0,0,0,0.3); }
+[data-theme="dark"] .news-date { color: #4a9eff; }
+[data-theme="dark"] .news-text { color: #dde1e7; }
+[data-theme="dark"] .page__footer { background: #15181f; color: #8b95a1; }
+[data-theme="dark"] .page__footer a { color: #7eb8f7; }
+[data-theme="dark"] .page__footer-copyright { color: #8b95a1; }
+[data-theme="dark"] #origami-bg { opacity: 0.35; }
+[data-theme="dark"] .link-code { background: #2d3748; border-color: #4a5568; }
+[data-theme="dark"] .link-blog { background: #1e3a5f; border-color: #60a5fa; color: #dbeafe; }
+</style>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'color-scheme';
+  var html = document.documentElement;
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('dark-mode-toggle');
+    if (!btn) return;
+
+    btn.addEventListener('click', function (e) {
+      var isDark = html.getAttribute('data-theme') === 'dark';
+
+      // Store click coordinates for the circle-reveal origin
+      var rect = btn.getBoundingClientRect();
+      var cx = Math.round(rect.left + rect.width / 2);
+      var cy = Math.round(rect.top + rect.height / 2);
+      html.style.setProperty('--vt-x', cx + 'px');
+      html.style.setProperty('--vt-y', cy + 'px');
+
+      // Spin animation on button icon
+      btn.classList.add('switching');
+      setTimeout(function () { btn.classList.remove('switching'); }, 400);
+
+      function doToggle() {
+        if (isDark) {
+          html.removeAttribute('data-theme');
+          localStorage.setItem(STORAGE_KEY, 'light');
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem(STORAGE_KEY, 'dark');
+        }
+      }
+
+      // Use View Transitions API if available, else plain toggle
+      if (document.startViewTransition) {
+        document.startViewTransition(doToggle);
+      } else {
+        doToggle();
+      }
+    });
+  });
+})();
+</script>
