@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Michael Edidem"
-  avatar           : "images/avatar.svg"
+  avatar           : "images/pimage.jpeg"
   bio              : "PhD Researcher | Spatial AI & Geospatial Machine Learning Engineer, Southern Illinois University Carbondale"
   location         : "Carbondale, IL"
   employer         :
