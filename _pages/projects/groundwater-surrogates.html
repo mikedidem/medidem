@@ -1,0 +1,106 @@
+---
+layout: portfolio
+permalink: /projects/groundwater-surrogates/
+title: "Conservation Diagnostics for Deep Learning Groundwater Surrogates"
+description: "A diagnostic framework that evaluates deep-learning groundwater surrogates on predictive accuracy and physical consistency against MODFLOW-2005."
+---
+
+<header class="page-head">
+  <div class="container">
+    <a class="crumb" href="{{ '/#projects' | relative_url }}">All projects</a>
+    <span class="eyebrow">Scientific ML · Case study</span>
+    <h1>Conservation Diagnostics for Deep Learning Groundwater Surrogates</h1>
+    <p>A surrogate can reproduce hydraulic head to R² &gt; 0.999 and still violate the physics it was trained on. This project builds the diagnostics to catch that.</p>
+    <div class="keyline">
+      <div><span>Role</span><strong>Lead author &amp; developer</strong></div>
+      <div><span>Status</span><strong>Manuscript under review</strong></div>
+      <div><span>Presented</span><strong>AWRA GWT 2026</strong></div>
+      <div><span>Stack</span><strong>PyTorch · MODFLOW-2005 · pytest</strong></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="https://github.com/mikedidem/gw_surrogate_evaluation">View code on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+  <div class="container prose">
+
+    <h2>Problem</h2>
+    <p>Numerical groundwater models such as MODFLOW are accurate but slow, which limits how many pumping or recharge scenarios a planner can explore. Deep-learning surrogates promise near-instant predictions, and they are usually judged by fit statistics: RMSE, R². But a model that matches the simulator's head field cell by cell can still break the governing equation, misplace flow at the boundaries, or fail to conserve water. Accuracy screens don't see any of that.</p>
+    <div class="callout"><p><strong>Research question:</strong> does high predictive accuracy imply physical consistency in groundwater surrogates? If not, how do you measure the gap?</p></div>
+
+    <h2>Approach</h2>
+    <ol class="pipeline">
+      <li>Benchmark aquifers<small>B1 uniform, B2 low-K lens</small></li>
+      <li>MODFLOW-2005<small>transient, 0–30 d, 33 snapshots</small></li>
+      <li>Train surrogates<small>CNN · ConvLSTM · PINN</small></li>
+      <li>Predict head<small>absolute metres</small></li>
+      <li>Diagnose<small>accuracy + physics</small></li>
+    </ol>
+    <p>I trained three surrogate families on two MODFLOW-2005 benchmarks, then evaluated each one with a diagnostic package that measures accuracy and physics together:</p>
+    <ul>
+      <li><strong>Accuracy:</strong> MSE, MAE, RMSE, relative RMSE, R².</li>
+      <li><strong>PDE residual:</strong> pointwise Boussinesq violation, reported as a ratio to MODFLOW's own residual under the same discrete operator. A ratio of 1 means the surrogate is as consistent as the solver that produced its training data.</li>
+      <li><strong>Boundary compliance:</strong> head error and gradient-direction agreement at the Dirichlet boundaries.</li>
+      <li><strong>Mass balance:</strong> storage change against boundary and well fluxes, as a percentage of the imposed extraction.</li>
+      <li><strong>Zone and grid sensitivity:</strong> the same quantities split into well, lens and background zones, and re-evaluated on coarser stencils.</li>
+    </ul>
+
+    <h2>Data and models</h2>
+    <p>Both benchmarks are transient, unconfined, single-layer aquifers on a 1000 × 1000 m domain discretized at 300 × 300, with a centered pumping well at −40,000 m³/d. B2 adds a 10:1 low-conductivity lens between the well and its main supply boundary, plus a regional gradient.</p>
+    <figure>
+      <img src="{{ '/images/projects/gw-benchmarks.png' | relative_url }}" alt="Benchmark domain configurations B1 and B2" loading="lazy">
+      <figcaption>The two benchmark configurations.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Model</th><th>Configuration</th><th>Prediction mode</th></tr></thead>
+        <tbody>
+          <tr><td>CNN</td><td>6 dilated 3×3 convs, 48 channels, receptive field 127 cells</td><td>single-step, rollout</td></tr>
+          <tr><td>ConvLSTM</td><td>sequence length 3, 32 hidden channels, 5×5 kernel, dilation 4</td><td>single-step, rollout</td></tr>
+          <tr><td>PINN</td><td>5 × 50 sine network, hard boundary/initial conditions, Adam → L-BFGS</td><td>direct (x, y, t) query</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Results</h2>
+    <p>Test window t = 26–30 d. Every number is produced by the evaluators in the repository.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Benchmark</th><th>Model</th><th class="num">Head RMSE (m)</th><th class="num">R²</th><th class="num">PDE residual ratio</th><th class="num">Mass error (% of well)</th></tr></thead>
+        <tbody>
+          <tr><td>B1</td><td>CNN</td><td class="num">0.0144</td><td class="num">0.99985</td><td class="num">84.0</td><td class="num">37.8</td></tr>
+          <tr><td>B1</td><td>ConvLSTM</td><td class="num">0.0232</td><td class="num">0.99960</td><td class="num">88.6</td><td class="num">289.6</td></tr>
+          <tr><td>B1</td><td>PINN</td><td class="num">0.0092</td><td class="num">0.99994</td><td class="num good">0.13</td><td class="num good">0.42</td></tr>
+          <tr><td>B2</td><td>CNN</td><td class="num">0.0366</td><td class="num">0.99989</td><td class="num">137.9</td><td class="num">62.4</td></tr>
+          <tr><td>B2</td><td>ConvLSTM</td><td class="num">0.0652</td><td class="num">0.99964</td><td class="num">289.1</td><td class="num">114.0</td></tr>
+          <tr><td>B2</td><td>PINN</td><td class="num">0.0147</td><td class="num">0.99998</td><td class="num good">0.51</td><td class="num good">1.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Residual RMSE by model and benchmark on a log scale, with the MODFLOW baseline marked" loading="lazy">
+      <figcaption>Governing-equation residual by model, log scale. The dashed line is MODFLOW's own residual.</figcaption>
+    </figure>
+    <p>All six models would pass any conventional accuracy screen. The CNN and ConvLSTM carry residuals two orders of magnitude above the numerical baseline and fail to close mass balance. The physics-informed model is the only one that is as consistent as the solver, or more so.</p>
+
+    <h2>Contribution</h2>
+    <p><strong>Scientific:</strong> it shows, with numbers, that accuracy and physical consistency come apart for groundwater surrogates, and gives a reusable way to measure both.</p>
+    <p><strong>Engineering:</strong> it ships a diagnostics package with unit-carrying outputs and a self-check test: reference data evaluated against itself must return zero head error and a residual ratio of exactly one. It has one data-root resolver, separate PINN trees per benchmark so configurations can't silently cross over, and demo notebooks that run the full pipeline on a CPU in minutes.</p>
+
+    <h2>Scope and limitations</h2>
+    <ul>
+      <li>Both benchmarks are synthetic, single-layer and unconfined, which keeps the reference physics controlled. Field-scale, multi-layer systems are the next step.</li>
+      <li>The headline numbers are for the unconstrained CNN and ConvLSTM. Hard-boundary variants are in the repository so boundary enforcement can be tested independently of the PDE residual.</li>
+      <li>Model data (several GB) is distributed separately from the code.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code: mikedidem/gw_surrogate_evaluation</a></li>
+      <li><em>Beyond Accuracy: Conservation Diagnostics for Deep Learning Groundwater Surrogates</em>. Edidem, M., Li, R., Kharazi, P. Manuscript under review.</li>
+      <li><em>Accuracy Is Not Enough: Evaluating Physical Consistency in Deep Learning-Based Groundwater Model Surrogates</em>. AWRA Geospatial Water Technology Conference, May 2026.</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+---
+layout: portfolio
+permalink: /projects/drainage-crossing-detection/
+title: "Drainage-Crossing Detection from High-Resolution DEMs"
+description: "Deep-learning classification and detection of drainage crossings (culverts and bridges) from LiDAR-derived elevation data for hydrographic mapping."
+---
+
+<header class="page-head">
+  <div class="container">
+    <a class="crumb" href="{{ '/#projects' | relative_url }}">All projects</a>
+    <span class="eyebrow">GeoAI · Computer vision · Case study</span>
+    <h1>Drainage-Crossing Detection from High-Resolution DEMs</h1>
+    <p>Finding the culverts and bridges that elevation models leave out, so stream networks derived from LiDAR don't break at every road.</p>
+    <div class="keyline">
+      <div><span>Role</span><strong>First author (2 papers)</strong></div>
+      <div><span>Best accuracy</span><strong>97.9% (F1 0.979)</strong></div>
+      <div><span>Data</span><strong>1-m LiDAR HRDEM + derivatives</strong></div>
+      <div><span>Published</span><strong>EMS 2025 · Frontiers in AI 2025</strong></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="https://doi.org/10.3389/frai.2025.1561281">Read the paper</a>
+      <a class="btn" href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Classification code</a>
+      <a class="btn" href="https://github.com/GeoFewLab/Drainage_CrossingDet">Detection code</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+  <div class="container prose">
+
+    <h2>Problem</h2>
+    <p>High-resolution digital elevation models (HRDEMs) from LiDAR capture road embankments but not the culverts and bridges that carry water underneath them. To a flow-routing algorithm every road looks like a dam, so derived stream networks are cut and diverted. Fixing this means knowing where the drainage crossings are, and mapping them by hand from aerial imagery doesn't scale.</p>
+
+    <h2>Approach</h2>
+    <ol class="pipeline">
+      <li>1-m HRDEM<small>LiDAR-derived</small></li>
+      <li>Terrain derivatives<small>TPI, openness, curvature</small></li>
+      <li>Deep-learning model<small>classify or detect</small></li>
+      <li>Explain<small>Grad-CAM saliency</small></li>
+      <li>Hydrographic mapping<small>breach the barrier</small></li>
+    </ol>
+    <p>Two complementary tasks, each in its own paper:</p>
+    <ul>
+      <li><strong>Classification</strong> (Frontiers in AI, 2025): is there a crossing in this 100 × 100 m patch? EfficientNetV2, trained from scratch on combinations of the HRDEM and geomorphological layers derived from it, with explainable AI to check what the model attends to.</li>
+      <li><strong>Detection</strong> (Environmental Modelling &amp; Software, 2025): where exactly are the crossings? End-to-end pipelines comparing segmentation and object-detection architectures (U-Net, CM-UNet, Faster R-CNN, YOLOv5, Transformer-based models) on elevation-derived inputs.</li>
+    </ul>
+
+    <h2>Data</h2>
+    <p>West Fork Big Blue Watershed, Nebraska: about 3,471 km² of mostly row-crop agriculture. The classification study uses 4,044 patches, balanced between crossing and non-crossing, with crossings digitized from aerial orthophotos. Each patch has five co-registered 1-m layers: HRDEM, curvature, positive openness, and TPI at two window sizes. A separate off-center test set checks that the model isn't just relying on crossings being centered.</p>
+    <p>The detection dataset is published: <a href="https://doi.org/10.6084/m9.figshare.25909453.v1">figshare, doi:10.6084/m9.figshare.25909453</a>.</p>
+
+    <h2>Results</h2>
+    <p>Classification test set (60/20/20 split), EfficientNetV2:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Input layers</th><th class="num">Accuracy</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1</th></tr></thead>
+        <tbody>
+          <tr><td>HRDEM only</td><td class="num">0.968</td><td class="num">0.968</td><td class="num">0.968</td><td class="num">0.968</td></tr>
+          <tr><td>TPI 21×21 only</td><td class="num">0.973</td><td class="num">0.972</td><td class="num">0.972</td><td class="num">0.972</td></tr>
+          <tr><td>HRDEM + positive openness + TPI 21×21</td><td class="num good">0.979</td><td class="num good">0.979</td><td class="num good">0.979</td><td class="num good">0.979</td></tr>
+          <tr><td>All five layers</td><td class="num">0.897</td><td class="num">0.897</td><td class="num">0.897</td><td class="num">0.897</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The best models improve on the earlier CNN baseline by 3.4–4.9 percentage points. More layers didn't help: stacking all five derivatives cut accuracy to 0.897, so feature selection mattered more than feature volume.</p>
+    <figure>
+      <img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Pairs of elevation patches and Grad-CAM saliency overlays, with attention concentrated where streams cross roads" loading="lazy">
+      <figcaption>Grad-CAM saliency: the model's attention falls where the stream channel meets the road embankment, the physically meaningful location.</figcaption>
+    </figure>
+
+    <h2>Contribution</h2>
+    <p><strong>Scientific:</strong> shows which terrain derivatives carry the crossing signal, and uses explainability to confirm the model learns the physical structure rather than artifacts.</p>
+    <p><strong>Practical:</strong> a route to automatically conditioning LiDAR DEMs for hydrographic mapping at scale. Related work on bridging hydrographic gaps appeared in JAWRA (2024).</p>
+
+    <h2>Scope and next steps</h2>
+    <ul>
+      <li>The classification results come from a single watershed. Whether these models, or foundation-model embeddings, transfer to new regions is the focus of my current work (CaGIS 2026).</li>
+      <li>Classification works on patches. Turning detections into a conditioned DEM and a corrected stream network is the downstream step.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://doi.org/10.1016/j.envsoft.2025.106338">Edidem et al. (2025), GeoAI-based Drainage Crossing Detection for Elevation-derived Hydrographic Mapping. <em>Environmental Modelling &amp; Software</em></a></li>
+      <li><a href="https://doi.org/10.3389/frai.2025.1561281">Edidem et al. (2025), Identification of Drainage Crossings on HRDEMs Using Explanatory Deep Learning Approaches. <em>Frontiers in Artificial Intelligence</em></a></li>
+      <li><a href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Classification code (GeoFewLab)</a> · <a href="https://github.com/GeoFewLab/Drainage_CrossingDet">Detection code (GeoFewLab)</a></li>
+    </ul>
+  </div>
+</div>

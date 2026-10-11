@@ -1,0 +1,94 @@
+---
+layout: portfolio
+permalink: /projects/chirrp/
+title: "CHIRRP: Hydro-AI for Participatory Water Planning"
+description: "A deployed system coupling an LLM interface with a physics-informed groundwater surrogate so stakeholders can explore pumping scenarios in plain language."
+---
+
+<header class="page-head">
+  <div class="container">
+    <a class="crumb" href="{{ '/#projects' | relative_url }}">All projects</a>
+    <span class="eyebrow">Deployed system · Case study</span>
+    <h1>CHIRRP: Hydro-AI for Participatory Water Planning</h1>
+    <p>Stakeholders ask a groundwater question in plain language and get an instant, physics-based answer they can audit against the numerical model it replaces.</p>
+    <div class="keyline">
+      <div><span>Role</span><strong>Co-author · repository maintainer</strong></div>
+      <div><span>Status</span><strong>Live · paper under review</strong></div>
+      <div><span>Speedup vs. MODFLOW</span><strong>≈238× on CPU</strong></div>
+      <div><span>Stack</span><strong>PyTorch · FastAPI · Angular · Docker</strong></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="https://morule-hydro.hf.space">Open the live demo</a>
+      <a class="btn" href="https://github.com/mikedidem/chirrp">View code on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+  <div class="container prose">
+
+    <h2>Problem</h2>
+    <p>Groundwater planning decisions such as how much to pump, and where, involve people who don't run numerical models. Each "what if" normally means a modeler setting up and running MODFLOW, so stakeholders see a few pre-chosen scenarios instead of exploring the trade-offs themselves.</p>
+
+    <h2>Approach</h2>
+    <p>CHIRRP couples two layers:</p>
+    <ul>
+      <li><strong>Social layer:</strong> an LLM parses a plain-language request ("reduce pumping by 15%") into a validated scenario object, with a regex fallback, and retrieves relevant Nebraska groundwater regulations through retrieval-augmented generation.</li>
+      <li><strong>Physical layer:</strong> a physics-informed neural network (PINN) surrogate of transient groundwater drawdown returns the full head field in a fraction of a second. Any result can be checked against a live MODFLOW-2005 run.</li>
+    </ul>
+    <figure>
+      <img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP dual-layer architecture: LLM social layer and PINN physical layer" loading="lazy">
+      <figcaption>Dual-layer architecture: LLM social layer and physics-informed surrogate physical layer.</figcaption>
+    </figure>
+    <ol class="pipeline">
+      <li>Plain-language request<small>text or voice</small></li>
+      <li>LLM scenario parsing<small>validated, in-envelope only</small></li>
+      <li>PINN surrogate<small>full space–time head field</small></li>
+      <li>MODFLOW cross-check<small>on demand</small></li>
+      <li>Decision readout<small>maps, comparisons, regulations</small></li>
+    </ol>
+
+    <h2>Evaluation</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What was measured</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Accuracy vs. MODFLOW-2005 (10 pumping rates)</td><td>mean RMSE 0.18 m, R² 0.98</td></tr>
+          <tr><td>Full head field, CPU</td><td>≈0.11 s vs. 26.4 s for MODFLOW (≈238×)</td></tr>
+          <tr><td>Per query, NVIDIA T4 GPU</td><td>≈3.2 ms (≈8,300×)</td></tr>
+          <tr><td>Boundary conditions</td><td>exact by construction (hard constraint)</td></tr>
+          <tr><td>Global mass-balance residual</td><td>≈9.9–11.6% of abstraction</td></tr>
+          <tr><td>Scenario parsing test set</td><td>16 / 16 correct, including rejecting out-of-range and withholding ambiguous requests</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>End to end, an interaction takes about 5.7 s, and the two LLM calls dominate. The hydrology is not the bottleneck.</p>
+
+    <h2>The application</h2>
+    <figure>
+      <img src="{{ '/images/projects/chirrp-explore.png' | relative_url }}" alt="Live CHIRRP session: a request to reduce pumping by 15 percent with decision readout, regulatory context and head map" loading="lazy">
+      <figcaption>A live session: "Reduce pumping by 15 percent."</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Explore:</strong> ask a scenario and get head and drawdown maps with a plain-language readout.</li>
+      <li><strong>Compare:</strong> overlay 2–4 pumping plans and flag the lowest-impact valid option.</li>
+      <li><strong>Find Limits:</strong> set a tolerable drawdown and search the trained envelope for the maximum allowable pumping (500 options in 256 ms).</li>
+      <li><strong>Accuracy:</strong> surrogate vs. MODFLOW metrics computed live.</li>
+    </ul>
+    <p><strong>Engineering:</strong> a FastAPI backend and Angular UI ship as a single Docker container on Hugging Face Spaces, with Postgres/pgvector for retrieval and LangGraph for scenario parsing. A reproducibility map ties every number in the paper to the file that produces it.</p>
+
+    <h2>Scope and limitations</h2>
+    <ul>
+      <li>Single-well, homogeneous-aquifer scope. Requests outside the trained envelope (−37.5% to +25% of baseline pumping) are rejected, not extrapolated.</li>
+      <li>Not yet evaluated with real stakeholders.</li>
+      <li>The deployed app runs CPU inference; the GPU path exists but isn't used in production.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://morule-hydro.hf.space">Live demo</a></li>
+      <li><a href="https://github.com/mikedidem/chirrp">Code: mikedidem/chirrp</a></li>
+      <li><em>An End-to-End Hydro-AI Framework for Next-generation Participatory Water Resources Planning</em>. Li, R., Edidem, M., Kharazi, P., Lee, H., Nadew, Y., Quinn, C., Akamai, K., Hu, S. Q. Manuscript under review.</li>
+    </ul>
+  </div>
+</div>
