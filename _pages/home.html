@@ -30,7 +30,7 @@ title: ""
   </div>
 </section>
 
-<section class="section" id="projects">
+<section class="section section--alt" id="projects">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Selected projects</span>
@@ -38,30 +38,38 @@ title: ""
       <p>Each project pairs a model with the evidence that it works and the limits of where it works.</p>
     </div>
 
-    <div class="projects">
-      <article class="project project--feature">
-        <div class="project__media"><img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Bar chart of PDE residual RMSE for CNN, ConvLSTM and PINN surrogates on two benchmarks, relative to the MODFLOW baseline" loading="lazy"></div>
-        <div class="project__body">
-          <div class="project__kicker">Scientific ML · Flagship</div>
+    <article class="flagship">
+      <a class="flagship__media" href="{{ '/projects/groundwater-surrogates/' | relative_url }}" aria-label="Groundwater surrogate case study">
+        <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Bar chart of PDE residual RMSE for CNN, ConvLSTM and PINN surrogates on two benchmarks, with the MODFLOW baseline as a dashed line" loading="lazy">
+      </a>
+      <div class="flagship__body">
+        <div>
+          <div class="project__kicker">Scientific ML · Groundwater surrogates</div>
           <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Deep Learning Groundwater Surrogates</a></h3>
-          <p>A surrogate can match a groundwater simulator to R² &gt; 0.999 and still violate the physics it was trained on. I built a diagnostic framework that scores CNN, ConvLSTM and physics-informed surrogates on accuracy <em>and</em> on governing-equation residuals, boundary behavior and mass balance against MODFLOW-2005.</p>
-          <div class="result">All six models pass a conventional accuracy screen, yet the data-driven surrogates leave PDE residuals <strong>84–289×</strong> the numerical baseline. The physics-informed model produced substantially smaller residuals while keeping mass-balance error within <strong>1.5%</strong>.</div>
-          <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>ConvLSTM</li><li>PDE diagnostics</li><li>pytest</li></ul>
+          <p>Deep-learning surrogates can match a groundwater simulator almost perfectly and still break the physics. I built a framework that tests accuracy and physical consistency together against MODFLOW-2005.</p>
+          <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>PDE diagnostics</li></ul>
           <div class="links">
             <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Case study</a>
             <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
           </div>
         </div>
-      </article>
+        <div class="flagship__metrics">
+          <div class="metric"><div class="metric__value">R² &gt; 0.999</div><div class="metric__label">every surrogate passes a standard accuracy screen</div></div>
+          <div class="metric"><div class="metric__value">84–289×</div><div class="metric__label">PDE residual of data-driven surrogates vs. the numerical baseline</div></div>
+          <div class="metric"><div class="metric__value">≤ 1.5%</div><div class="metric__label">mass-balance error for the physics-informed model</div></div>
+        </div>
+      </div>
+    </article>
 
+    <div class="projects">
       <article class="project">
-        <div class="project__media"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></div>
+        <a class="project__media" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
         <div class="project__body">
           <div class="project__kicker">Deployed system · Decision support</div>
           <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
-          <p>A deployed app where stakeholders ask groundwater questions in plain language ("reduce pumping by 15%") and get physics-informed predictions, cross-checked against MODFLOW-2005, with regulation-grounded context via RAG.</p>
-          <div class="result">Full head field in <strong>0.11 s vs. 26.4 s</strong> for MODFLOW (≈238× on CPU), at <strong>R² 0.98</strong> across 10 pumping rates. Live on Hugging Face.</div>
-          <ul class="tags"><li>PINN surrogate</li><li>LLM</li><li>RAG</li><li>FastAPI</li><li>Docker</li></ul>
+          <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
+          <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
+          <ul class="tags"><li>PINN</li><li>LLM + RAG</li><li>FastAPI</li><li>Docker</li></ul>
           <div class="links">
             <a href="{{ '/projects/chirrp/' | relative_url }}">Case study</a>
             <a href="https://morule-hydro.hf.space">Live demo</a>
@@ -71,13 +79,13 @@ title: ""
       </article>
 
       <article class="project">
-        <div class="project__media"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></div>
+        <a class="project__media" href="{{ '/projects/drainage-crossing-detection/' | relative_url }}" aria-label="Drainage-crossing detection case study"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></a>
         <div class="project__body">
           <div class="project__kicker">GeoAI · Computer vision</div>
-          <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from High-Resolution DEMs</a></h3>
-          <p>Culverts and bridges under roads are missing from elevation models, so derived stream networks break at every road. I developed deep-learning classifiers and detectors that locate these crossings from 1-m LiDAR terrain data.</p>
-          <div class="result"><strong>97.9%</strong> accuracy (F1 0.979) classifying crossings with EfficientNetV2 on HRDEM-derived terrain layers, with Grad-CAM to explain each prediction.</div>
-          <ul class="tags"><li>EfficientNetV2</li><li>Faster R-CNN</li><li>YOLOv5</li><li>U-Net</li><li>LiDAR / DEM</li><li>XAI</li></ul>
+          <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from LiDAR DEMs</a></h3>
+          <p>Finding the culverts and bridges that elevation models miss, so derived stream networks don't break at every road.</p>
+          <div class="metric metric--inline"><div class="metric__value">97.9%</div><div class="metric__label">classification accuracy, explained with Grad-CAM</div></div>
+          <ul class="tags"><li>EfficientNetV2</li><li>Faster R-CNN</li><li>YOLOv5</li><li>LiDAR / DEM</li></ul>
           <div class="links">
             <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Case study</a>
             <a href="https://doi.org/10.3389/frai.2025.1561281">Paper</a>
@@ -85,22 +93,24 @@ title: ""
           </div>
         </div>
       </article>
-
-      <article class="project project--wide">
-        <div class="project__body">
-          <div class="project__kicker">Current research <span class="status">In progress</span></div>
-          <h3>Earth Foundation Models and Neural Operators</h3>
-          <div class="project__cols">
-            <p><strong>Foundation-model transfer.</strong> Do Earth foundation-model embeddings (AlphaEarth Foundations) encode transferable drainage-crossing structure, or only regional appearance? I'm testing transfer across regions for spatially implicit infrastructure mapping.</p>
-            <p><strong>Neural operators.</strong> Finite-volume, physics-informed neural operators as fast surrogates for transient unconfined groundwater flow, with an analysis of the accuracy, cost and physical-consistency tradeoffs.</p>
-          </div>
-          <ul class="tags"><li>AlphaEarth embeddings</li><li>Domain transfer</li><li>Neural operators</li><li>FNO</li></ul>
-          <div class="links">
-            <a href="{{ '/publications/#talks' | relative_url }}">CaGIS 2026 &amp; AGU 2026 talks</a>
-          </div>
-        </div>
-      </article>
     </div>
+
+    <article class="current">
+      <div class="current__head">
+        <div class="project__kicker">Current research <span class="status">In progress</span></div>
+        <h3>Geospatial representations &amp; neural surrogates</h3>
+      </div>
+      <div class="current__item">
+        <h4>Geospatial representations</h4>
+        <p>Do AlphaEarth Foundations embeddings carry transferable infrastructure structure, or only regional appearance?</p>
+        <a href="{{ '/publications/#talks' | relative_url }}">CaGIS 2026 →</a>
+      </div>
+      <div class="current__item">
+        <h4>Neural surrogates</h4>
+        <p>Finite-volume, physics-informed neural operators for transient groundwater flow: accuracy, cost and consistency tradeoffs.</p>
+        <a href="{{ '/publications/#talks' | relative_url }}">AGU 2026 →</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -116,31 +126,27 @@ title: ""
         <div class="theme__num">01</div>
         <h3>Geospatial AI</h3>
         <p>Spatial and spatiotemporal prediction from heterogeneous geospatial data, and whether learned representations transfer across regions.</p>
-        <p class="theme__evidence">Foundation-model transfer (CaGIS 2026) · Swin-UNet drought forecasting</p>
       </div>
       <div class="theme">
         <div class="theme__num">02</div>
         <h3>Remote Sensing &amp; Computer Vision</h3>
-        <p>Feature extraction, detection and mapping from imagery and terrain-derived data, with explainability to show <em>why</em> a model fires.</p>
-        <p class="theme__evidence">Drainage-crossing detection · 4 papers (2023–2025)</p>
+        <p>Feature extraction, detection and mapping from imagery and terrain data, with explainability to show <em>why</em> a model fires.</p>
       </div>
       <div class="theme">
         <div class="theme__num">03</div>
         <h3>Scientific Machine Learning</h3>
-        <p>Neural surrogates and process-aware learning for computationally expensive environmental simulations, judged on physical consistency, not just fit.</p>
-        <p class="theme__evidence">Conservation diagnostics · PINNs · neural operators (AGU 2026)</p>
+        <p>Neural surrogates for expensive environmental simulations, judged on physical consistency, not just fit.</p>
       </div>
       <div class="theme">
         <div class="theme__num">04</div>
         <h3>Reproducible ML Systems</h3>
-        <p>Experiment pipelines, evaluation and benchmarking that others can rerun, and decision-support tools that put models in front of the people who use them.</p>
-        <p class="theme__evidence">Tested diagnostics package · CHIRRP deployed app</p>
+        <p>Evaluation and benchmarking others can rerun, and decision-support tools that put models in front of the people who use them.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="publications">
+<section class="section section--alt" id="publications">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Selected publications</span>
@@ -176,26 +182,39 @@ title: ""
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Technical capabilities</span>
-      <h2>What I work with</h2>
+      <h2>What I work with, and where it shows</h2>
     </div>
     <div class="caps">
-      <div class="cap"><h3>Machine learning</h3><p>PyTorch, TensorFlow · CNNs, ConvLSTM, Transformers · physics-informed neural networks, neural operators · explainable AI (Grad-CAM)</p></div>
-      <div class="cap"><h3>Computer vision</h3><p>Classification, detection and segmentation: EfficientNetV2, Faster R-CNN, YOLOv5, U-Net, CM-UNet, Swin-UNet</p></div>
-      <div class="cap"><h3>Geospatial</h3><p>GeoPandas, Rasterio, GDAL, Shapely · ArcGIS Pro, ERDAS Imagine · PostGIS · Google Earth Engine</p></div>
-      <div class="cap"><h3>Earth observation &amp; terrain</h3><p>LiDAR and high-resolution DEMs · terrain derivatives (TPI, openness, curvature) · TauDEM · foundation-model embeddings</p></div>
-      <div class="cap"><h3>Scientific computing</h3><p>MODFLOW-2005, FloPy · PDE residual and mass-balance diagnostics · numerical benchmarking</p></div>
-      <div class="cap"><h3>Engineering</h3><p>Git and GitHub · pytest · reproducible experiment pipelines · GPU, TPU and HPC training · AWS, GCP</p></div>
+      <div class="cap">
+        <h3>Scientific machine learning</h3>
+        <p>Physics-informed neural networks, neural operators, CNN and ConvLSTM surrogates · PDE-residual and mass-balance diagnostics · MODFLOW-2005, FloPy</p>
+        <p class="cap__evidence">Shown in: groundwater diagnostics, CHIRRP</p>
+      </div>
+      <div class="cap">
+        <h3>Computer vision &amp; Earth observation</h3>
+        <p>EfficientNetV2, Faster R-CNN, YOLOv5, U-Net, Swin-UNet · Grad-CAM · LiDAR and high-resolution DEMs, terrain derivatives · foundation-model embeddings</p>
+        <p class="cap__evidence">Shown in: drainage-crossing papers, CaGIS 2026</p>
+      </div>
+      <div class="cap">
+        <h3>Geospatial data</h3>
+        <p>GeoPandas, Rasterio, GDAL, Shapely · PostGIS · Google Earth Engine · ArcGIS Pro, ERDAS Imagine · TauDEM</p>
+        <p class="cap__evidence">Shown in: SIUC research pipelines, CDM Smith, UNT fellowship</p>
+      </div>
+      <div class="cap">
+        <h3>ML engineering</h3>
+        <p>PyTorch, TensorFlow · Git and GitHub, pytest · reproducible experiment pipelines · GPU, TPU and HPC training · AWS, GCP</p>
+        <p class="cap__evidence">Shown in: tested diagnostics package, TPU optimization (IEEE BigData 2024)</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section section--alt" id="about">
   <div class="container about-grid">
     <div>
       <span class="eyebrow">About</span>
       <h2>Background</h2>
-      <p>I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. My work combines spatial and spatiotemporal modeling, remote sensing and computer vision, and neural surrogate modeling for environmental applications.</p>
-      <p>Before my graduate work I spent five years in applied geospatial roles, from surveying to enterprise GIS and UAV inspection at a power utility. In 2025 I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
+      <p>I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. Before graduate school I spent five years in applied geospatial work: surveying, enterprise GIS and UAV inspection at a power utility. In 2025 I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
       <p><a href="{{ '/about/' | relative_url }}">Experience, education and awards →</a></p>
     </div>
     <div>
@@ -208,17 +227,17 @@ title: ""
   </div>
 </section>
 
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Contact</span>
-      <h2>Get in touch</h2>
+<section class="cta" id="contact">
+  <div class="container cta__inner">
+    <div>
+      <h2>Let's talk</h2>
       <p>Open to conversations about GeoAI, scientific ML and Earth-observation research roles and collaborations.</p>
     </div>
-    <div class="contact">
-      <a class="btn btn--primary" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
-      <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
-      <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">Download CV</a>
+    <div class="cta__actions">
+      <a class="btn btn--light" href="mailto:{{ site.author.email }}">Email me</a>
+      <a class="btn btn--ghost" href="https://github.com/{{ site.author.github }}">GitHub</a>
+      <a class="btn btn--ghost" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">CV</a>
+      <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Publications</a>
     </div>
   </div>
 </section>
