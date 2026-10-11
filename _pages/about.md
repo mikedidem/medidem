@@ -130,6 +130,24 @@ End-to-end deep learning pipelines detecting drainage crossings from elevation-d
     <span class="presentation-year-label">2026</span>
     <ul class="presentation-items">
       <li>
+        <strong>AGU Fall Meeting</strong>, San Francisco, CA, December 7&#8211;11, 2026.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Neural-Operator Surrogates for Transient Groundwater Systems: Insights into Model Performance and Tradeoffs</em> &#8212;
+            <strong>Edidem, M.</strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>CaGIS Conference</strong>, St. Louis, MO, September 8&#8211;11, 2026.
+        <ul class="presentation-subitems">
+          <li>
+            <em>Transferability of Earth Foundation Model Embeddings for Spatially Implicit Infrastructure Mapping</em> &#8212;
+            <strong>Edidem, M.</strong>, Li, R., Kharazi, P., Benson, I.
+          </li>
+        </ul>
+      </li>
+      <li>
         <strong>AWRA Geospatial Water Technology Conference</strong>, Niagara Falls, NY, May 18&#8211;20, 2026.
         <ul class="presentation-subitems">
           <li>
