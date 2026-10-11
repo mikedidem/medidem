@@ -134,7 +134,7 @@ End-to-end deep learning pipelines detecting drainage crossings from elevation-d
         <ul class="presentation-subitems">
           <li>
             <em>Neural-Operator Surrogates for Transient Groundwater Systems: Insights into Model Performance and Tradeoffs</em> &#8212;
-            <strong>Edidem, M.</strong>
+            <strong>Edidem, M.</strong>, Li, R., Kharazi, P.
           </li>
         </ul>
       </li>
