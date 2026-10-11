@@ -83,7 +83,8 @@ description: "A diagnostic framework that evaluates deep-learning groundwater su
       <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Residual RMSE by model and benchmark on a log scale, with the MODFLOW baseline marked" loading="lazy">
       <figcaption>Governing-equation residual by model, log scale. The dashed line is MODFLOW's own residual.</figcaption>
     </figure>
-    <p>All six models would pass any conventional accuracy screen. The CNN and ConvLSTM carry residuals two orders of magnitude above the numerical baseline and fail to close mass balance. The physics-informed model is the only one that is as consistent as the solver, or more so.</p>
+    <p>All six models would pass any conventional accuracy screen. The CNN and ConvLSTM carry residuals two orders of magnitude above the numerical baseline and fail to close mass balance. The physics-informed model is the only one with residuals at or below the numerical baseline, and it keeps mass-balance error within 1.5%.</p>
+    <p>A ratio below 1 doesn't mean the PINN is more correct than MODFLOW. MODFLOW is the reference: the ratio measures how much a head field violates the discrete Boussinesq operator. A smooth network output trained to minimize that residual can score below the solver while still differing from it, which is why the diagnostics report accuracy and physics side by side.</p>
 
     <h2>Contribution</h2>
     <p><strong>Scientific:</strong> it shows, with numbers, that accuracy and physical consistency come apart for groundwater surrogates, and gives a reusable way to measure both.</p>

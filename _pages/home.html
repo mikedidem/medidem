@@ -15,7 +15,7 @@ title: ""
         <a class="btn btn--primary" href="#projects">View projects</a>
         <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
         <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
-        <a class="btn" href="{{ '/cv/Edidem_Michael_CV_adademic_2026.pdf' | relative_url }}">Download CV</a>
+        <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">Download CV</a>
       </div>
     </div>
     <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem">
@@ -45,7 +45,7 @@ title: ""
           <div class="project__kicker">Scientific ML · Flagship</div>
           <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Deep Learning Groundwater Surrogates</a></h3>
           <p>A surrogate can match a groundwater simulator to R² &gt; 0.999 and still violate the physics it was trained on. I built a diagnostic framework that scores CNN, ConvLSTM and physics-informed surrogates on accuracy <em>and</em> on governing-equation residuals, boundary behavior and mass balance against MODFLOW-2005.</p>
-          <div class="result">All six models pass a conventional accuracy screen, but the data-driven ones carry PDE residuals <strong>84–289×</strong> MODFLOW's own. The physics-informed model stays below the solver's residual (<strong>0.13–0.51×</strong>) and closes mass balance within <strong>1.5%</strong>.</div>
+          <div class="result">All six models pass a conventional accuracy screen, yet the data-driven surrogates leave PDE residuals <strong>84–289×</strong> the numerical baseline. The physics-informed model produced substantially smaller residuals while keeping mass-balance error within <strong>1.5%</strong>.</div>
           <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>ConvLSTM</li><li>PDE diagnostics</li><li>pytest</li></ul>
           <div class="links">
             <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Case study</a>
@@ -218,7 +218,7 @@ title: ""
     <div class="contact">
       <a class="btn btn--primary" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
       <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
-      <a class="btn" href="{{ '/cv/Edidem_Michael_CV_adademic_2026.pdf' | relative_url }}">Download CV</a>
+      <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">Download CV</a>
     </div>
   </div>
 </section>
