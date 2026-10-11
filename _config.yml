@@ -7,7 +7,9 @@
 
 # Site Settings
 title                    : "Michael Edidem"
-description              : "Geospatial AI, hydrologic modeling, and physics-guided machine learning for environmental decision-support."
+description              : "Michael Edidem: geospatial AI and scientific machine learning for spatial and spatiotemporal prediction, remote sensing and computer vision, and neural surrogate modeling of environmental systems."
+url                      : "https://mikedidem.github.io"
+baseurl                  : "/medidem"
 repository               : "mikedidem/medidem"
 google_scholar_stats_use_cdn : false
 
@@ -23,7 +25,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Michael Edidem"
   avatar           : "images/pimage.jpeg"
-  bio              : "PhD Researcher | Spatial AI & Geospatial Machine Learning Engineer, Southern Illinois University Carbondale"
+  bio              : "PhD Researcher, Southern Illinois University Carbondale | Geospatial AI & Scientific Machine Learning"
   location         : "Carbondale, IL"
   employer         :
   pubmed           :
@@ -124,8 +126,7 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: default
-      author_profile: true
+      layout: portfolio
 
 
 # Sass/SCSS

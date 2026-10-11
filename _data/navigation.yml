@@ -1,34 +1,16 @@
-# main links links
 main:
-  - title: "About Me"
-    url: "#about-me"
+  - title: "Projects"
+    url: "/#projects"
 
-  - title: "Research Interests"
-    url: "#-research-interests"
-
-  - title: "Education"
-    url: "#-education"
-
-  - title: "Experience"
-    url: "#-experience"
-
-  - title: "Research Experience"
-    url: "#-research-experience"
-
-  - title: "Selected Projects"
-    url: "#-selected-projects"
+  - title: "Research"
+    url: "/#research"
 
   - title: "Publications"
-    url: "#-publications"
+    url: "/publications/"
 
-  - title: "Presentations"
-    url: "#-conference-presentations"
+  - title: "About"
+    url: "/about/"
 
-  - title: "Honors and Awards"
-    url: "#-honors-and-awards"
-
-  - title: "Affiliations"
-    url: "#-professional-affiliations"
-
-  - title: "Technical Expertise"
-    url: "#-technical-expertise"
+  - title: "CV"
+    url: "/cv/Edidem_Michael_CV_adademic_2026.pdf"
+    external: true

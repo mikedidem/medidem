@@ -1,0 +1,224 @@
+---
+layout: portfolio
+permalink: /
+title: ""
+---
+
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <h1>Michael Edidem</h1>
+      <p class="hero__tagline"><span>Geospatial AI</span><span>Scientific Machine Learning</span><span>Remote Sensing</span><span>Spatial &amp; Spatiotemporal Modeling</span></p>
+      <p class="hero__summary">I work at the intersection of geospatial AI and scientific machine learning. My research focuses on spatial and spatiotemporal prediction, remote sensing and computer vision for feature extraction and mapping, and neural surrogate modeling for environmental simulation. I translate complex physical and geospatial problems into reproducible machine-learning systems and decision-support tools.</p>
+      <p class="hero__meta">PhD Researcher, Southern Illinois University Carbondale &nbsp;·&nbsp; Carbondale, IL</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#projects">View projects</a>
+        <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
+        <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a class="btn" href="{{ '/cv/Edidem_Michael_CV_adademic_2026.pdf' | relative_url }}">Download CV</a>
+      </div>
+    </div>
+    <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem">
+  </div>
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="stat__value">5</div><div class="stat__label">peer-reviewed papers, 2 as first author</div></div>
+      <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations (AGU, AAG, AWRA, IEEE, CaGIS)</div></div>
+      <div class="stat"><div class="stat__value">1</div><div class="stat__label">deployed decision-support system (CHIRRP)</div></div>
+      <div class="stat"><div class="stat__value">2025–26</div><div class="stat__label">SIUC University-wide Outstanding Thesis Award</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected projects</span>
+      <h2>Problems I've taken from data to validated results</h2>
+      <p>Each project pairs a model with the evidence that it works and the limits of where it works.</p>
+    </div>
+
+    <div class="projects">
+      <article class="project project--feature">
+        <div class="project__media"><img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Bar chart of PDE residual RMSE for CNN, ConvLSTM and PINN surrogates on two benchmarks, relative to the MODFLOW baseline" loading="lazy"></div>
+        <div class="project__body">
+          <div class="project__kicker">Scientific ML · Flagship</div>
+          <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Deep Learning Groundwater Surrogates</a></h3>
+          <p>A surrogate can match a groundwater simulator to R² &gt; 0.999 and still violate the physics it was trained on. I built a diagnostic framework that scores CNN, ConvLSTM and physics-informed surrogates on accuracy <em>and</em> on governing-equation residuals, boundary behavior and mass balance against MODFLOW-2005.</p>
+          <div class="result">All six models pass a conventional accuracy screen, but the data-driven ones carry PDE residuals <strong>84–289×</strong> MODFLOW's own. The physics-informed model stays below the solver's residual (<strong>0.13–0.51×</strong>) and closes mass balance within <strong>1.5%</strong>.</div>
+          <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>ConvLSTM</li><li>PDE diagnostics</li><li>pytest</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Case study</a>
+            <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__media"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></div>
+        <div class="project__body">
+          <div class="project__kicker">Deployed system · Decision support</div>
+          <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
+          <p>A deployed app where stakeholders ask groundwater questions in plain language ("reduce pumping by 15%") and get physics-informed predictions, cross-checked against MODFLOW-2005, with regulation-grounded context via RAG.</p>
+          <div class="result">Full head field in <strong>0.11 s vs. 26.4 s</strong> for MODFLOW (≈238× on CPU), at <strong>R² 0.98</strong> across 10 pumping rates. Live on Hugging Face.</div>
+          <ul class="tags"><li>PINN surrogate</li><li>LLM</li><li>RAG</li><li>FastAPI</li><li>Docker</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/chirrp/' | relative_url }}">Case study</a>
+            <a href="https://morule-hydro.hf.space">Live demo</a>
+            <a href="https://github.com/mikedidem/chirrp">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__media"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></div>
+        <div class="project__body">
+          <div class="project__kicker">GeoAI · Computer vision</div>
+          <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from High-Resolution DEMs</a></h3>
+          <p>Culverts and bridges under roads are missing from elevation models, so derived stream networks break at every road. I developed deep-learning classifiers and detectors that locate these crossings from 1-m LiDAR terrain data.</p>
+          <div class="result"><strong>97.9%</strong> accuracy (F1 0.979) classifying crossings with EfficientNetV2 on HRDEM-derived terrain layers, with Grad-CAM to explain each prediction.</div>
+          <ul class="tags"><li>EfficientNetV2</li><li>Faster R-CNN</li><li>YOLOv5</li><li>U-Net</li><li>LiDAR / DEM</li><li>XAI</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Case study</a>
+            <a href="https://doi.org/10.3389/frai.2025.1561281">Paper</a>
+            <a href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project--wide">
+        <div class="project__body">
+          <div class="project__kicker">Current research <span class="status">In progress</span></div>
+          <h3>Earth Foundation Models and Neural Operators</h3>
+          <div class="project__cols">
+            <p><strong>Foundation-model transfer.</strong> Do Earth foundation-model embeddings (AlphaEarth Foundations) encode transferable drainage-crossing structure, or only regional appearance? I'm testing transfer across regions for spatially implicit infrastructure mapping.</p>
+            <p><strong>Neural operators.</strong> Finite-volume, physics-informed neural operators as fast surrogates for transient unconfined groundwater flow, with an analysis of the accuracy, cost and physical-consistency tradeoffs.</p>
+          </div>
+          <ul class="tags"><li>AlphaEarth embeddings</li><li>Domain transfer</li><li>Neural operators</li><li>FNO</li></ul>
+          <div class="links">
+            <a href="{{ '/publications/#talks' | relative_url }}">CaGIS 2026 &amp; AGU 2026 talks</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Research</span>
+      <h2>Four connected themes</h2>
+      <p>Geospatial AI and scientific ML methods, applied to Earth and environmental systems: groundwater, hydrography, infrastructure and land surface.</p>
+    </div>
+    <div class="themes">
+      <div class="theme">
+        <div class="theme__num">01</div>
+        <h3>Geospatial AI</h3>
+        <p>Spatial and spatiotemporal prediction from heterogeneous geospatial data, and whether learned representations transfer across regions.</p>
+        <p class="theme__evidence">Foundation-model transfer (CaGIS 2026) · Swin-UNet drought forecasting</p>
+      </div>
+      <div class="theme">
+        <div class="theme__num">02</div>
+        <h3>Remote Sensing &amp; Computer Vision</h3>
+        <p>Feature extraction, detection and mapping from imagery and terrain-derived data, with explainability to show <em>why</em> a model fires.</p>
+        <p class="theme__evidence">Drainage-crossing detection · 4 papers (2023–2025)</p>
+      </div>
+      <div class="theme">
+        <div class="theme__num">03</div>
+        <h3>Scientific Machine Learning</h3>
+        <p>Neural surrogates and process-aware learning for computationally expensive environmental simulations, judged on physical consistency, not just fit.</p>
+        <p class="theme__evidence">Conservation diagnostics · PINNs · neural operators (AGU 2026)</p>
+      </div>
+      <div class="theme">
+        <div class="theme__num">04</div>
+        <h3>Reproducible ML Systems</h3>
+        <p>Experiment pipelines, evaluation and benchmarking that others can rerun, and decision-support tools that put models in front of the people who use them.</p>
+        <p class="theme__evidence">Tested diagnostics package · CHIRRP deployed app</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected publications</span>
+      <h2>Peer-reviewed work</h2>
+    </div>
+    <ul class="pubs prose">
+      <li class="pub">
+        <a class="pub__title" href="https://doi.org/10.1016/j.envsoft.2025.106338">GeoAI-based Drainage Crossing Detection for Elevation-derived Hydrographic Mapping</a>
+        <div class="pub__authors"><strong>Edidem, M.</strong>, Li, R., Wu, D., Rekabdar, B., Wang, G.</div>
+        <div class="pub__venue"><em>Environmental Modelling &amp; Software</em>, 2025 <span class="pub__badge">First author</span></div>
+      </li>
+      <li class="pub">
+        <a class="pub__title" href="https://doi.org/10.3389/frai.2025.1561281">Identification of Drainage Crossings on High-Resolution Digital Elevation Models Using Explanatory Deep Learning Approaches</a>
+        <div class="pub__authors"><strong>Edidem, M.</strong>, Xu, B., Li, R., Wu, D., Rekabdar, B., Wang, G.</div>
+        <div class="pub__venue"><em>Frontiers in Artificial Intelligence</em>, 2025 <span class="pub__badge">First author</span></div>
+      </li>
+      <li class="pub">
+        <a class="pub__title" href="https://doi.org/10.1111/1752-1688.13239">Enhancing Hydrologic LiDAR Digital Elevation Models: Bridging Hydrographic Gaps at Fine Scales</a>
+        <div class="pub__authors">Wu, D., Li, R., <strong>Edidem, M.</strong>, Wang, G.</div>
+        <div class="pub__venue"><em>JAWRA Journal of the American Water Resources Association</em>, 2024</div>
+      </li>
+      <li class="pub">
+        <a class="pub__title" href="https://doi.org/10.1080/15481603.2023.2230706">Classification of Drainage Crossings on High-resolution Digital Elevation Models: A Deep Learning Approach</a>
+        <div class="pub__authors">Wu, D., Li, R., Talbert, C., <strong>Edidem, M.</strong>, Rekabdar, B., Wang, G.</div>
+        <div class="pub__venue"><em>GIScience &amp; Remote Sensing</em>, 2023</div>
+      </li>
+    </ul>
+    <p class="section-more"><a href="{{ '/publications/' | relative_url }}">All publications and conference talks →</a></p>
+  </div>
+</section>
+
+<section class="section" id="capabilities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Technical capabilities</span>
+      <h2>What I work with</h2>
+    </div>
+    <div class="caps">
+      <div class="cap"><h3>Machine learning</h3><p>PyTorch, TensorFlow · CNNs, ConvLSTM, Transformers · physics-informed neural networks, neural operators · explainable AI (Grad-CAM)</p></div>
+      <div class="cap"><h3>Computer vision</h3><p>Classification, detection and segmentation: EfficientNetV2, Faster R-CNN, YOLOv5, U-Net, CM-UNet, Swin-UNet</p></div>
+      <div class="cap"><h3>Geospatial</h3><p>GeoPandas, Rasterio, GDAL, Shapely · ArcGIS Pro, ERDAS Imagine · PostGIS · Google Earth Engine</p></div>
+      <div class="cap"><h3>Earth observation &amp; terrain</h3><p>LiDAR and high-resolution DEMs · terrain derivatives (TPI, openness, curvature) · TauDEM · foundation-model embeddings</p></div>
+      <div class="cap"><h3>Scientific computing</h3><p>MODFLOW-2005, FloPy · PDE residual and mass-balance diagnostics · numerical benchmarking</p></div>
+      <div class="cap"><h3>Engineering</h3><p>Git and GitHub · pytest · reproducible experiment pipelines · GPU, TPU and HPC training · AWS, GCP</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="eyebrow">About</span>
+      <h2>Background</h2>
+      <p>I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. My work combines spatial and spatiotemporal modeling, remote sensing and computer vision, and neural surrogate modeling for environmental applications.</p>
+      <p>Before my graduate work I spent five years in applied geospatial roles, from surveying to enterprise GIS and UAV inspection at a power utility. In 2025 I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
+      <p><a href="{{ '/about/' | relative_url }}">Experience, education and awards →</a></p>
+    </div>
+    <div>
+      <ul class="facts">
+        <li><span>PhD, GIS &amp; Environmental Modeling</span>Southern Illinois University Carbondale · expected 2027</li>
+        <li><span>M.S., Geography &amp; Environmental Resources (Geospatial AI)</span>Southern Illinois University Carbondale · 2024</li>
+        <li><span>B.S., Geoinformatics &amp; Surveying</span>University of Uyo, Nigeria · 2019</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Get in touch</h2>
+      <p>Open to conversations about GeoAI, scientific ML and Earth-observation research roles and collaborations.</p>
+    </div>
+    <div class="contact">
+      <a class="btn btn--primary" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
+      <a class="btn" href="{{ '/cv/Edidem_Michael_CV_adademic_2026.pdf' | relative_url }}">Download CV</a>
+    </div>
+  </div>
+</section>
