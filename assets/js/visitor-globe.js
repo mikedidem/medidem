@@ -15,7 +15,7 @@
   const MAX_ARCS = 40;
   const SPIN_DEG_PER_SEC = 6;
   const SPIN_REDUCED_DEG_PER_SEC = 2; // slow, steady turn when the OS asks for reduced motion; no pulses
-  const TILT = -18;
+  const DEFAULT_TILT = -18;
 
   const SAMPLE = [
     [41.9, -87.6], [38.6, -90.2], [40.8, -96.7], [47.6, -122.3], [40.7, -74.0],
@@ -196,6 +196,7 @@
     canvas.setAttribute("role", "img");
     canvas.setAttribute("aria-label", "Globe showing approximate locations of visitors to this site, with day and night shading for the current time");
     const ctx = canvas.getContext("2d");
+    const TILT = el.dataset.tilt ? +el.dataset.tilt : DEFAULT_TILT;
     const earth = el.dataset.day ? await earthLayer(el).catch((e) => { console.warn("visitor-globe: satellite layer unavailable", e); return null; }) : null;
     if (earth) {
       el.style.position = "relative";
@@ -316,14 +317,14 @@
 
       // Places I've been, drawn under the visitor dots: open diamonds by default,
       // or plain dots matching the visitors when data-places-style="dots".
-      const dsz = Math.max(2.4, size / 80);
+      const dsz = Math.min(5, Math.max(2.4, size / 80));
       const asDots = el.dataset.placesStyle === "dots";
       for (const pl of places) {
         const lonlat = [pl.lon, pl.lat];
         if (!facing(lonlat) || d3.geoDistance(lonlat, HOME) < 0.005) continue;
         const [x, y] = projection(lonlat);
         if (asDots) {
-          const rr = Math.max(1.8, size / 105);
+          const rr = Math.min(3.6, Math.max(1.8, size / 105));
           ctx.fillStyle = c.paper; ctx.beginPath(); ctx.arc(x, y, rr + 1.1, 0, 2 * Math.PI); ctx.fill();
           ctx.fillStyle = c.dot; ctx.beginPath(); ctx.arc(x, y, rr, 0, 2 * Math.PI); ctx.fill();
           continue;
@@ -335,7 +336,7 @@
       }
 
       // Visitor dots, with a paper-colored halo so they sit cleanly on the map.
-      const r = Math.max(1.8, size / 105);
+      const r = Math.min(3.6, Math.max(1.8, size / 105));
       for (const p of points) {
         const lonlat = [p.lon, p.lat];
         if (!facing(lonlat)) continue;
