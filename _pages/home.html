@@ -9,14 +9,14 @@ title: ""
     <div>
       <span class="eyebrow">Geospatial research · Earth &amp; environmental systems</span>
       <h1>Michael Edidem</h1>
-      <p class="hero__tagline"><span>Geospatial AI</span><span>Scientific Machine Learning</span><span>Remote Sensing</span><span>Spatial &amp; Spatiotemporal Modeling</span></p>
-      <p class="hero__summary">I work at the intersection of geospatial AI and scientific machine learning. My research focuses on spatial and spatiotemporal prediction, remote sensing and computer vision for feature extraction and mapping, and neural surrogate modeling for environmental simulation. I translate complex physical and geospatial problems into reproducible machine-learning systems and decision-support tools.</p>
+      <p class="hero__tagline"><span>Geospatial AI</span><span>Scientific Machine Learning</span><span>Remote Sensing</span></p>
+      <p class="hero__question">If we could observe every place on Earth, every day, what could we learn about how our planet changes—and how it shapes us?</p>
+      <p class="hero__summary">I develop geospatial AI and scientific machine-learning methods to turn imagery, terrain and simulation data into knowledge about infrastructure and environmental systems. My research explores learning from sparse, heterogeneous observations and building predictions we can trust.</p>
       <p class="hero__meta">PhD Researcher · Southern Illinois University Carbondale<br>Expected graduation 2027 · Carbondale, IL</p>
       <div class="btn-row">
-        <a class="btn btn--primary" href="#projects">View projects</a>
-        <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
+        <a class="btn btn--primary" href="#projects">Explore my work</a>
+        <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">CV</a>
         <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
-        <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">Download CV</a>
       </div>
     </div>
     <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem" width="280" height="340">
@@ -40,6 +40,18 @@ title: ""
     </div>
 
     <article class="flagship">
+      <div class="flagship__body">
+        <div>
+          <div class="project__kicker">Scientific ML · Groundwater surrogates</div>
+          <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Groundwater Surrogates</a></h3>
+          <p>A model can predict groundwater levels accurately and still violate physical laws. I developed a framework that evaluates predictive accuracy alongside conservation, boundary behavior and governing-equation residuals.</p>
+          <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>PDE diagnostics</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Case study</a>
+            <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
+          </div>
+        </div>
+      </div>
       <div class="explorer" id="groundwater-explorer">
         <div class="explorer__head">
           <div><span class="eyebrow">Fig. 1 · Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
@@ -68,18 +80,6 @@ title: ""
           <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Original PDE residual comparison for CNN, ConvLSTM and PINN on both benchmarks" loading="lazy">
         </details>
         <script id="groundwater-data" type="application/json">{{ site.data.groundwater_results | jsonify }}</script>
-      </div>
-      <div class="flagship__body">
-        <div>
-          <div class="project__kicker">Scientific ML · Groundwater surrogates</div>
-          <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Deep Learning Groundwater Surrogates</a></h3>
-          <p>Deep-learning surrogates can match a groundwater simulator almost perfectly and still break the physics. I built a framework that tests accuracy and physical consistency together against MODFLOW-2005.</p>
-          <ul class="tags"><li>PyTorch</li><li>MODFLOW-2005</li><li>PINNs</li><li>PDE diagnostics</li></ul>
-          <div class="links">
-            <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Case study</a>
-            <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
-          </div>
-        </div>
       </div>
     </article>
 
@@ -123,12 +123,13 @@ title: ""
         <h3>Multimodal geospatial representation learning &amp; neural surrogates</h3>
       </div>
       <div class="current__item">
-        <h4>Transferability of Earth foundation model embeddings for spatially implicit infrastructure mapping</h4>
+        <h4>Multimodal geospatial representation learning</h4>
+        <p>How can we learn from sparse, heterogeneous geospatial data? I investigate geospatial foundation models, multimodal feature extraction and transfer across regions.</p>
         <a href="{{ '/projects/drainage-crossing-detection/#transfer' | relative_url }}">CaGIS 2026 →</a>
       </div>
       <div class="current__item">
-        <h4>Neural surrogates</h4>
-        <p>Finite-volume, physics-informed neural operators for transient groundwater flow: accuracy, cost and consistency tradeoffs.</p>
+        <h4>Neural surrogates for environmental systems</h4>
+        <p>How can we build fast, accurate models that remain physically consistent? I investigate physics-informed neural operators for groundwater simulation.</p>
         <a href="{{ '/publications/#talks' | relative_url }}">AGU 2026 →</a>
       </div>
     </article>

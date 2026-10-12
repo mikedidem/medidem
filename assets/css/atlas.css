@@ -152,3 +152,7 @@ h2 { font-size:clamp(1.8rem,3vw,2.4rem); }
 .cartography-plate img { width:100%; height:auto; border:1px solid var(--border); border-radius:0; background:#f6f5df; }
 .cartography-plate figcaption { color:var(--text-2); font-size:.8rem; line-height:1.6; margin-top:10px; }
 @media(max-width:720px) { .side-project__grid { grid-template-columns:1fr; gap:24px; } .side-project { padding:40px 0; } }
+/* Research purpose and context before the results explorer */
+.hero__question { max-width:680px; color:var(--text); font-size:clamp(1.1rem,1.7vw,1.35rem); font-weight:600; line-height:1.5; margin:0 0 20px; }
+.flagship > .flagship__body { border-bottom:1px solid var(--border); padding-bottom:24px; }
+.flagship > .explorer { border-bottom:0; }
