@@ -171,3 +171,4 @@ h2 { font-size:clamp(1.8rem,3vw,2.4rem); }
 .cta__earth figcaption { padding:12px 0 24px; font-size:.72rem; line-height:1.6; color:var(--muted); }
 .cta__earth .globe-key { color:var(--text-2); }
 .cta__earth .globe-note { color:var(--muted); }
+@media(max-width:767px) { .cta__earth { display:none; } .cta--earthrise { padding-bottom:52px; } }

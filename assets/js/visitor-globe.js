@@ -212,7 +212,6 @@
       // Places the author has been: a separate, labeled layer (data-places="places.json").
       el.dataset.places ? fetch(el.dataset.places).then((r) => r.json()).catch(() => []) : [],
     ]);
-    if (el.dataset.endpoint && !el.dataset.sample) ping(el.dataset.endpoint);
 
     const land = topojson.feature(world, world.objects.land);
     const borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
@@ -409,8 +408,37 @@
     start();
   }
 
+  // d3 and topojson are fetched only when a globe is actually shown.
+  const LIBS = [
+    "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js",
+    "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js",
+  ];
+  let libs = null;
+  function loadLibs() {
+    if (window.d3 && window.topojson) return Promise.resolve();
+    libs = libs || LIBS.reduce((chain, src) => chain.then(() => new Promise((resolve, reject) => {
+      const tag = document.createElement("script");
+      tag.src = src; tag.onload = resolve; tag.onerror = reject;
+      document.head.appendChild(tag);
+    })), Promise.resolve());
+    return libs;
+  }
+
+  // Every visit is counted, but the globe is only drawn where CSS shows it
+  // (hidden on small screens). If the window grows past that, it mounts then.
   function init() {
-    document.querySelectorAll(".visitor-globe").forEach((el) => mount(el).catch(() => {}));
+    document.querySelectorAll(".visitor-globe").forEach((el) => {
+      if (el.dataset.endpoint && !el.dataset.sample) ping(el.dataset.endpoint);
+      let mounted = false;
+      const tryMount = () => {
+        if (mounted || el.getClientRects().length === 0) return;
+        mounted = true;
+        window.removeEventListener("resize", tryMount);
+        loadLibs().then(() => mount(el)).catch(() => {});
+      };
+      window.addEventListener("resize", tryMount);
+      tryMount();
+    });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
