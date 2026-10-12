@@ -7,10 +7,11 @@ title: ""
 <section class="hero">
   <div class="container hero__grid">
     <div>
+      <span class="eyebrow">Geospatial research · Earth &amp; environmental systems</span>
       <h1>Michael Edidem</h1>
       <p class="hero__tagline"><span>Geospatial AI</span><span>Scientific Machine Learning</span><span>Remote Sensing</span><span>Spatial &amp; Spatiotemporal Modeling</span></p>
       <p class="hero__summary">I work at the intersection of geospatial AI and scientific machine learning. My research focuses on spatial and spatiotemporal prediction, remote sensing and computer vision for feature extraction and mapping, and neural surrogate modeling for environmental simulation. I translate complex physical and geospatial problems into reproducible machine-learning systems and decision-support tools.</p>
-      <p class="hero__meta">PhD Researcher, Southern Illinois University Carbondale &nbsp;·&nbsp; Carbondale, IL</p>
+      <p class="hero__meta">PhD Researcher · Southern Illinois University Carbondale<br>Expected graduation 2027 · Carbondale, IL</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="#projects">View projects</a>
         <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
@@ -18,12 +19,18 @@ title: ""
         <a class="btn" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">Download CV</a>
       </div>
     </div>
-    <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem">
+    <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem" width="280" height="340">
   </div>
   <div class="container">
+    <figure class="opening-plate">
+      <a href="{{ '/images/projects/drainage-context.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the drainage-crossing figure at full size">
+        <img src="{{ '/images/projects/drainage-context.webp' | relative_url }}" alt="Three terrain examples with inferred drainage crossings marked where stream channels intersect roads." width="1592" height="518" fetchpriority="high">
+      </a>
+      <figcaption><span class="figure-number">Fig. 1</span> — Reading infrastructure from terrain. Drainage crossings are often hidden from overhead imagery; road–stream context reveals where to look. <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Research case study →</a> · <a href="{{ '/images/projects/drainage-context.webp' | relative_url }}" target="_blank" rel="noopener">View full-size figure →</a></figcaption>
+    </figure>
     <div class="stats">
       <div class="stat"><div class="stat__value">5</div><div class="stat__label">peer-reviewed papers, 2 as first author</div></div>
-      <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations (AGU, AAG, AWRA, IEEE, CaGIS)</div></div>
+      <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations<br><small>6 completed · 1 scheduled (AGU 2026)</small></div></div>
       <div class="stat"><div class="stat__value">1</div><div class="stat__label">deployed decision-support system (CHIRRP)</div></div>
       <div class="stat"><div class="stat__value">2025–26</div><div class="stat__label">SIUC University-wide Outstanding Thesis Award</div></div>
     </div>
@@ -33,15 +40,41 @@ title: ""
 <section class="section section--alt" id="projects">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Selected projects</span>
+      <span class="eyebrow">Selected work</span>
       <h2>From Data to Validated Results</h2>
       <p>Each project pairs a model with the evidence that it works and the limits of where it works.</p>
     </div>
 
     <article class="flagship">
-      <a class="flagship__media" href="{{ '/projects/groundwater-surrogates/' | relative_url }}" aria-label="Groundwater surrogate case study">
-        <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Bar chart of PDE residual RMSE for CNN, ConvLSTM and PINN surrogates on two benchmarks, with the MODFLOW baseline as a dashed line" loading="lazy">
-      </a>
+      <div class="explorer" id="groundwater-explorer">
+        <div class="explorer__head">
+          <div><span class="eyebrow">Fig. 2 · Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
+          <div class="explorer__controls js-only">
+            <label>Benchmark<select id="benchmark-select"><option value="B1">B1 · Uniform aquifer</option><option value="B2">B2 · Low-K lens</option></select></label>
+            <label>Model<select id="model-select"><option>CNN</option><option>ConvLSTM</option><option selected>PINN</option></select></label>
+          </div>
+        </div>
+        <div class="explorer__readout" aria-live="polite" aria-atomic="true">
+          <div class="readout"><span>Predictive fit / R²</span><strong id="result-r2">0.99994</strong><small id="result-rmse">RMSE 0.0092 m</small></div>
+          <div class="readout"><span>PDE residual / baseline</span><strong id="result-residual">0.13×</strong><small>MODFLOW reference = 1×</small></div>
+          <div class="readout"><span>Mass-balance error</span><strong id="result-mass">0.42%</strong><small>Relative to well extraction</small></div>
+        </div>
+        <div class="residual-plot" role="img" aria-label="B1 residual ratios: CNN 84, ConvLSTM 88.6, PINN 0.13. MODFLOW reference is 1." id="residual-plot">
+          <p class="residual-plot__title">PDE residual ratio · log scale 0.1–1,000 · vertical marker = MODFLOW (1×)</p>
+          <div class="residual-row" data-model="CNN"><span>CNN</span><div class="residual-track"><span class="residual-bar" style="width:73.11%"></span></div><span class="residual-value">84×</span></div>
+          <div class="residual-row" data-model="ConvLSTM"><span>ConvLSTM</span><div class="residual-track"><span class="residual-bar" style="width:73.69%"></span></div><span class="residual-value">88.6×</span></div>
+          <div class="residual-row" data-model="PINN" data-selected="true"><span>PINN</span><div class="residual-track"><span class="residual-bar" style="width:2.85%"></span></div><span class="residual-value">0.13×</span></div>
+        </div>
+        <p class="explorer__note" id="result-note">B1 / PINN: high predictive accuracy with 0.42% mass-balance error. A residual below 1 measures agreement with the diagnostic operator; it does not establish superiority to MODFLOW.</p>
+        <p class="explorer__source">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
+        <details class="explorer__table"><summary>All six results &amp; original figure</summary>
+          <div class="table-wrap"><table><caption>Groundwater surrogate evaluation · test window 26–30 days</caption><thead><tr><th>Benchmark</th><th>Model</th><th>RMSE (m)</th><th>R²</th><th>Residual ratio</th><th>Mass error (%)</th></tr></thead><tbody>
+          {% for result in site.data.groundwater_results %}<tr><td>{{ result.benchmark }}</td><td>{{ result.model }}</td><td>{{ result.rmse }}</td><td>{{ result.r2 }}</td><td>{{ result.residual }}</td><td>{{ result.mass }}</td></tr>{% endfor %}
+          </tbody></table></div>
+          <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Original PDE residual comparison for CNN, ConvLSTM and PINN on both benchmarks" loading="lazy">
+        </details>
+        <script id="groundwater-data" type="application/json">{{ site.data.groundwater_results | jsonify }}</script>
+      </div>
       <div class="flagship__body">
         <div>
           <div class="project__kicker">Scientific ML · Groundwater surrogates</div>
@@ -53,11 +86,6 @@ title: ""
             <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
           </div>
         </div>
-        <div class="flagship__metrics">
-          <div class="metric"><div class="metric__value">R² &gt; 0.999</div><div class="metric__label">every surrogate passes a standard accuracy screen</div></div>
-          <div class="metric"><div class="metric__value">84–289×</div><div class="metric__label">PDE residual of data-driven surrogates vs. the numerical baseline</div></div>
-          <div class="metric"><div class="metric__value">≤ 1.5%</div><div class="metric__label">mass-balance error for the physics-informed model</div></div>
-        </div>
       </div>
     </article>
 
@@ -65,7 +93,7 @@ title: ""
       <article class="project">
         <a class="project__media" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
         <div class="project__body">
-          <div class="project__kicker">Deployed system · Decision support</div>
+          <div class="project__kicker">Fig. 3 · Participatory water planning</div>
           <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
           <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
           <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
@@ -81,7 +109,7 @@ title: ""
       <article class="project">
         <a class="project__media" href="{{ '/projects/drainage-crossing-detection/' | relative_url }}" aria-label="Drainage-crossing detection case study"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></a>
         <div class="project__body">
-          <div class="project__kicker">GeoAI · Computer vision</div>
+          <div class="project__kicker">Fig. 4 · Drainage-crossing classification</div>
           <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from LiDAR DEMs</a></h3>
           <p>Finding the culverts and bridges that elevation models miss, so derived stream networks don't break at every road.</p>
           <div class="metric metric--inline"><div class="metric__value">97.9%</div><div class="metric__label">classification accuracy, explained with Grad-CAM</div></div>
@@ -117,7 +145,7 @@ title: ""
 <section class="section" id="research">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Research</span>
+      <span class="eyebrow">Research interests</span>
       <h2>Four connected themes</h2>
       <p>Geospatial AI and scientific ML methods, applied to Earth and environmental systems: groundwater, hydrography, infrastructure and land surface.</p>
     </div>
@@ -181,7 +209,7 @@ title: ""
 <section class="section" id="capabilities">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Technical capabilities</span>
+      <span class="eyebrow">Methods &amp; tools</span>
       <h2>What I work with, and where it shows</h2>
     </div>
     <div class="caps">
@@ -209,10 +237,27 @@ title: ""
   </div>
 </section>
 
+<section class="section side-project" id="cartography">
+  <div class="container side-project__grid">
+    <div>
+      <span class="eyebrow">On the side</span>
+      <h2>A world map for a game</h2>
+      <p>Ever seen a world map made of triangles? I built this temperature map on the Fuller (Dymaxion) projection for a game at the Fuller Futures Festival in Carbondale.</p>
+      <p>It unfolds the globe like a paper icosahedron, so the continents stay connected. Here's how it works and how to read it.</p>
+      <a href="{{ '/cartography/fuller-temperature-map/' | relative_url }}">Explore the map →</a>
+    </div>
+    <figure class="cartography-plate">
+      <a href="{{ '/cartography/fuller-temperature-map/' | relative_url }}" aria-label="Read about the Fuller map side project">
+        <img src="{{ '/images/projects/fuller-temperature-map.webp' | relative_url }}" width="2000" height="1415" loading="lazy" alt="Temperature map on the unfolded triangular faces of the Fuller Dymaxion world projection.">
+      </a>
+      <figcaption>Fuller Dymaxion temperature map · 2026</figcaption>
+    </figure>
+  </div>
+</section>
 <section class="section section--alt" id="about">
   <div class="container about-grid">
     <div>
-      <span class="eyebrow">About</span>
+      <span class="eyebrow">Background</span>
       <h2>Background</h2>
       <p>I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. Before graduate school I spent five years in applied geospatial work: surveying, enterprise GIS and UAV inspection at a power utility. In 2025 I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
       <p><a href="{{ '/about/' | relative_url }}">Experience, education and awards →</a></p>
