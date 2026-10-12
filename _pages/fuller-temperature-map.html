@@ -22,18 +22,25 @@ description: "A global temperature map on the Fuller Dymaxion projection, built 
     </figure>
   </div>
   <div class="container prose">
-    <h2>A map to gather around</h2>
-    <p>Most world maps are rectangles. This one is made of triangles. I built it in ArcGIS from temperature data supplied by Dr. Justin Schoof (SIUC Geography), for a large-format game at the Fuller Futures Festival in Carbondale, home of Buckminster Fuller's dome house.</p>
-    <p>It was a good excuse to get to know a projection most people have never seen. Here's how to read it, and why it looks the way it does.</p>
-    <h2>How to read the map</h2>
-    <p>The white triangular edges show the facets of the unfolded globe. Coastlines, geographic labels and graticules provide orientation across the unfamiliar arrangement of continents.</p>
-    <p>The upper legend describes the land-temperature classes in degrees Celsius, from below −40 °C to above 30 °C. The lower legend describes sea-surface-temperature classes in degrees Celsius with a separate blue palette. These are two separate legends: land and ocean colors should be interpreted using their corresponding scales.</p>
-    <h2>What is the Fuller projection?</h2>
-    <p>The Fuller projection, also called the Dymaxion map, represents the globe using the 20 triangular faces of an icosahedron. These faces are unfolded into a flat arrangement designed to avoid splitting continental landmasses. The familiar 1954 map was developed by R. Buckminster Fuller with cartographer Shoji Sadao. <a href="https://www.bfi.org/about-fuller/big-ideas/dymaxion-map/">Buckminster Fuller Institute →</a></p>
-    <p>Its connected-land view supports thinking about global relationships rather than treating each continent as a separate island in a rectangular world map. It also asks the reader to use coastlines, labels and graticules instead of relying on a familiar north-up layout.</p>
-    <div class="callout"><p><strong>A projection still makes tradeoffs.</strong> Fuller is neither equal-area nor conformal. Areas, shapes, distances, directions and angles can be distorted, and geographic lines are interrupted at facet boundaries. It is intended for whole-globe representation, rather than local distance measurement. <a href="https://pro.arcgis.com/en/pro-app/3.6/help/mapping/properties/fuller.htm">Esri’s projection documentation →</a></p></div>
-    <h2>Fuller’s Carbondale connection</h2>
-    <p>The Fuller Dome Home in Carbondale provides the local connection between this mapping project and Fuller’s legacy. The festival’s planned use of the map brings cartography into that public setting. <a href="https://fullerdomehome.com/">Fuller Dome Home →</a></p>
+    <h2>Did you know Buckminster Fuller taught at SIU?</h2>
+    <p>Before he was famous for the geodesic dome, R. Buckminster Fuller spent twelve years in Carbondale. From 1959 to 1971 he was a research professor at Southern Illinois University, and from 1960 he and his wife Anne lived in a geodesic dome at 407 South Forest Avenue, a few blocks from campus. It was the only dome he ever lived in and the only home he ever owned. It still stands, and is listed on the National Register of Historic Places. <a href="https://fullerdomehome.com/dome-home/">Fuller Dome Home →</a></p>
+
+    <h2>His idea: a world map with no "up"</h2>
+    <p>Fuller also rethought the world map. Every flat map has to cut and stretch the globe somewhere. Most familiar maps cut the oceans and stretch the land near the poles, and they put north at the top by convention.</p>
+    <p>Fuller's answer, the Dymaxion map, wraps the globe in an icosahedron, a solid with 20 triangular faces, and unfolds those triangles flat. He first published a version in <em>Life</em> magazine in 1943, and the icosahedral version followed in 1954, developed with the cartographer Shoji Sadao. The cuts are placed so the continents stay almost joined, like one island in one ocean. There is no right-side-up: Fuller wanted people to see the Earth as a single connected place, not as nations arranged around a north-up grid. <a href="https://www.bfi.org/about-fuller/big-ideas/dymaxion-map/">Buckminster Fuller Institute →</a></p>
+    <div class="callout"><p><strong>Every projection makes trade-offs, and this one does too.</strong> The Fuller projection is neither equal-area nor conformal, so areas, shapes, distances and directions are all somewhat distorted, and lines of latitude and longitude break at the triangle edges. In return, distortion is spread fairly evenly and no continent gets cut apart. It's a map for seeing the whole planet, not for measuring distances. <a href="https://pro.arcgis.com/en/pro-app/3.6/help/mapping/properties/fuller.htm">Esri: Fuller projection →</a></p></div>
+
+    <h2>Bringing the map back to Carbondale</h2>
+    <p>In 2026, the Fuller Futures Festival in Carbondale planned a large-format version of Fuller's map for a public game. Dr. Justin Schoof (SIUC Geography and Environmental Resources) supplied global temperature data, and I built the map in ArcGIS, putting land and sea-surface temperatures onto Fuller's triangles, with legends, coastlines and labels so players could find their way around.</p>
+    <p>It was a fun one to make: a geographer at Fuller's old university, drawing his map of the world more than eighty years after he first published it, for a festival that carries his name.</p>
+
+    <h2>How to read this map</h2>
+    <ul>
+      <li><strong>The triangles</strong> are the unfolded faces of the icosahedron. The white lines are the folds. Coastlines, labels and the latitude/longitude grid help you find familiar places in the unfamiliar arrangement.</li>
+      <li><strong>Two legends, two temperature scales.</strong> Land uses the green-to-red scale at the top, from below −40 °C to above 30 °C. Oceans use the blue sea-surface-temperature scale at the bottom. Read each color against its own legend.</li>
+      <li><strong>Try finding</strong> Antarctica (purple, coldest), then follow the continents around: they nearly touch all the way across.</li>
+    </ul>
+
     <h2>Further reading</h2>
     <ul>
       <li><a href="https://www.bfi.org/about-fuller/big-ideas/dymaxion-map/">Buckminster Fuller Institute: the Dymaxion map</a></li>
