@@ -31,6 +31,12 @@ description: "A diagnostic framework that evaluates deep-learning groundwater su
     <div class="callout"><p><strong>Research question:</strong> does high predictive accuracy imply physical consistency in groundwater surrogates? If not, how do you measure the gap?</p></div>
 
     <h2>Approach</h2>
+    <figure class="methods-plate">
+      <a href="{{ '/images/projects/groundwater-methods.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the groundwater methods figure at full size">
+        <img src="{{ '/images/projects/groundwater-methods.webp' | relative_url }}" alt="Groundwater evaluation workflow: homogeneous and heterogeneous benchmark aquifers, MODFLOW simulation and chronological data partition, CNN, ConvLSTM and PINN surrogates, and predictive, local, boundary and global conservation diagnostics." loading="lazy">
+      </a>
+      <figcaption>Benchmark systems, simulation data, surrogate architectures and conservation diagnostics. <a href="{{ '/images/projects/groundwater-methods.webp' | relative_url }}" target="_blank" rel="noopener">View full-size figure →</a></figcaption>
+    </figure>
     <ol class="pipeline">
       <li>Benchmark aquifers<small>B1 uniform, B2 low-K lens</small></li>
       <li>MODFLOW-2005<small>transient, 0–30 d, 33 snapshots</small></li>
