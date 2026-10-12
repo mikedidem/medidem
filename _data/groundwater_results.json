@@ -1,0 +1,8 @@
+[
+  {"benchmark":"B1","model":"CNN","rmse":0.0144,"r2":0.99985,"residual":84.0,"mass":37.8},
+  {"benchmark":"B1","model":"ConvLSTM","rmse":0.0232,"r2":0.99960,"residual":88.6,"mass":289.6},
+  {"benchmark":"B1","model":"PINN","rmse":0.0092,"r2":0.99994,"residual":0.13,"mass":0.42},
+  {"benchmark":"B2","model":"CNN","rmse":0.0366,"r2":0.99989,"residual":137.9,"mass":62.4},
+  {"benchmark":"B2","model":"ConvLSTM","rmse":0.0652,"r2":0.99964,"residual":289.1,"mass":114.0},
+  {"benchmark":"B2","model":"PINN","rmse":0.0147,"r2":0.99998,"residual":0.51,"mass":1.5}
+]
