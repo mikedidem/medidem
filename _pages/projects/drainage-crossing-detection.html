@@ -15,7 +15,7 @@ description: "Deep-learning classification and detection of drainage crossings (
       <div><span>Role</span><strong>First author (2 papers)</strong></div>
       <div><span>Best accuracy</span><strong>97.9% (F1 0.979)</strong></div>
       <div><span>Data</span><strong>1-m LiDAR HRDEM + derivatives</strong></div>
-      <div><span>Published</span><strong>EMS 2025 · Frontiers in AI 2025</strong></div>
+      <div><span>Published</span><strong>EMS 2025 · Frontiers in AI 2025 · CaGIS 2026</strong></div>
     </div>
     <div class="btn-row">
       <a class="btn btn--primary" href="https://doi.org/10.3389/frai.2025.1561281">Read the paper</a>
@@ -31,8 +31,7 @@ description: "Deep-learning classification and detection of drainage crossings (
     <h2>Problem</h2>
     <p>High-resolution digital elevation models (HRDEMs) from LiDAR capture road embankments but not the culverts and bridges that carry water underneath them. To a flow-routing algorithm every road looks like a dam, so derived stream networks are cut and diverted. Fixing this means knowing where the drainage crossings are, and mapping them by hand from aerial imagery doesn't scale.</p>
     <figure>
-      <img src="{{ '/images/projects/drainage-context.webp' | relative_url }}" alt="Three LiDAR elevation tiles with inferred drainage crossings marked where stream channels meet roads." width="1592" height="518" loading="lazy">
-      <figcaption>Crossings are rarely visible directly. They're inferred where a stream channel meets a road embankment in the terrain.</figcaption>
+      <img src="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" alt="Spatially implicit infrastructure: drainage crossings are often not represented in elevation data because road surfaces hide the culverts, so their locations must be inferred from terrain patterns at road-drainage intersections. Three LiDAR elevation tiles show inferred crossings." width="2880" height="1460" loading="lazy">
     </figure>
 
     <h2>Approach</h2>
@@ -76,9 +75,38 @@ description: "Deep-learning classification and detection of drainage crossings (
     <p><strong>Scientific:</strong> shows which terrain derivatives carry the crossing signal, and uses explainability to confirm the model learns the physical structure rather than artifacts.</p>
     <p><strong>Practical:</strong> a route to automatically conditioning LiDAR DEMs for hydrographic mapping at scale. Related work on bridging hydrographic gaps appeared in JAWRA (2024).</p>
 
+    <h2 id="transfer">Does it transfer across regions?</h2>
+    <p><em>CaGIS 2026 · Transferability of Earth foundation model embeddings for spatially implicit infrastructure mapping</em></p>
+    <div class="callout"><p><strong>Research question:</strong> Earth foundation-model embeddings are globally available, but global coverage of a representation does not guarantee geographic validity of the decision rule learned from it. Do drainage-crossing models trained on AlphaEarth embeddings retain predictive skill under zero-shot transfer to geographically distinct regions, relative to models trained on terrain covariates alone?</p></div>
+    <p>Models are trained on labeled crossings in Nebraska and evaluated, without retraining or local calibration, in Illinois, North Dakota and California.</p>
+    <figure>
+      <img src="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" alt="Map of the contiguous United States: models are trained in Nebraska and tested without retraining in North Dakota, Illinois and California." width="1270" height="700" loading="lazy">
+      <figcaption>Source region (Nebraska) and three zero-shot test regions.</figcaption>
+    </figure>
+    <p>Three input representations, DEM-derived terrain covariates, 64-dimensional AlphaEarth embeddings and their fusion, are each paired with two downstream learners (XGBoost and a CNN), giving six configurations.</p>
+    <p>Area under the precision–recall curve (PR-AUC):</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Configuration</th><th class="num">Nebraska (in-domain)</th><th class="num">Illinois</th><th class="num">North Dakota</th><th class="num">California</th></tr></thead>
+        <tbody>
+          <tr><td>XGBoost · DEM</td><td class="num">0.79</td><td class="num">0.47</td><td class="num">0.57</td><td class="num">0.60</td></tr>
+          <tr><td>XGBoost · AlphaEarth</td><td class="num">0.85</td><td class="num">0.65</td><td class="num">0.67</td><td class="num">0.48</td></tr>
+          <tr><td>XGBoost · DEM + AlphaEarth</td><td class="num">0.89</td><td class="num">0.65</td><td class="num">0.66</td><td class="num">0.55</td></tr>
+          <tr><td>CNN · DEM</td><td class="num">0.99</td><td class="num">0.94</td><td class="num">0.57</td><td class="num">0.52</td></tr>
+          <tr><td>CNN · AlphaEarth</td><td class="num">0.88</td><td class="num">0.68</td><td class="num">0.71</td><td class="num">0.52</td></tr>
+          <tr><td>CNN · DEM + AlphaEarth</td><td class="num">0.99</td><td class="num">0.95</td><td class="num">0.54</td><td class="num">0.48</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Transfer is constrained by spatial heterogeneity.</strong> No configuration retains its in-domain skill across all three target regions, and the best-performing configuration differs by region.</li>
+      <li><strong>The value of the embeddings is not uniform.</strong> Relative to terrain-only models, AlphaEarth inputs improved transfer in some model–region pairs and degraded it in others.</li>
+    </ul>
+    <p>A natural next step is moving from prediction maps to applicability maps: estimating, before target-region labels are available, whether a region's predictor space is represented in the training data, for example with the area of applicability and dissimilarity index (Meyer &amp; Pebesma, 2021).</p>
+
     <h2>Scope and next steps</h2>
     <ul>
-      <li>The classification results come from a single watershed. Whether these models, or foundation-model embeddings, transfer to new regions is the focus of my current work (CaGIS 2026).</li>
+      <li>The classification results come from a single watershed; the transfer study above tests generalization across states with one source region and three targets.</li>
       <li>Classification works on patches. Turning detections into a conditioned DEM and a corrected stream network is the downstream step.</li>
     </ul>
 
@@ -86,6 +114,7 @@ description: "Deep-learning classification and detection of drainage crossings (
     <ul>
       <li><a href="https://doi.org/10.1016/j.envsoft.2025.106338">Edidem et al. (2025), GeoAI-based Drainage Crossing Detection for Elevation-derived Hydrographic Mapping. <em>Environmental Modelling &amp; Software</em></a></li>
       <li><a href="https://doi.org/10.3389/frai.2025.1561281">Edidem et al. (2025), Identification of Drainage Crossings on HRDEMs Using Explanatory Deep Learning Approaches. <em>Frontiers in Artificial Intelligence</em></a></li>
+      <li><em>Transferability of Earth Foundation Model Embeddings for Spatially Implicit Infrastructure Mapping</em>. Edidem, M., Li, R., Kharazi, P., Benson, I. CaGIS Conference, St. Louis, MO, September 2026.</li>
       <li><a href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Classification code (GeoFewLab)</a> · <a href="https://github.com/GeoFewLab/Drainage_CrossingDet">Detection code (GeoFewLab)</a></li>
     </ul>
   </div>
