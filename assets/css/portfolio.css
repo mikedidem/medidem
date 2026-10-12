@@ -357,3 +357,6 @@ a.project__media:hover { text-decoration: none; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.caps__building { margin: 36px 0 0; padding: 16px 20px; border: 1px dashed var(--border); border-radius: 10px; font-size: 0.93rem; color: var(--text-2); }
+.caps__building span { display: block; font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 4px; }
