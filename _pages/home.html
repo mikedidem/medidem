@@ -22,12 +22,6 @@ title: ""
     <img class="hero__photo" src="{{ '/images/pimage.jpeg' | relative_url }}" alt="Portrait of Michael Edidem" width="280" height="340">
   </div>
   <div class="container">
-    <figure class="opening-plate">
-      <a href="{{ '/images/projects/drainage-context.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the drainage-crossing figure at full size">
-        <img src="{{ '/images/projects/drainage-context.webp' | relative_url }}" alt="Three terrain examples with inferred drainage crossings marked where stream channels intersect roads." width="1592" height="518" fetchpriority="high">
-      </a>
-      <figcaption><span class="figure-number">Fig. 1</span> — Reading infrastructure from terrain. Drainage crossings are often hidden from overhead imagery; road–stream context reveals where to look. <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Research case study →</a> · <a href="{{ '/images/projects/drainage-context.webp' | relative_url }}" target="_blank" rel="noopener">View full-size figure →</a></figcaption>
-    </figure>
     <div class="stats">
       <div class="stat"><div class="stat__value">5</div><div class="stat__label">peer-reviewed papers, 2 as first author</div></div>
       <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations<br><small>6 completed · 1 scheduled (AGU 2026)</small></div></div>
@@ -48,7 +42,7 @@ title: ""
     <article class="flagship">
       <div class="explorer" id="groundwater-explorer">
         <div class="explorer__head">
-          <div><span class="eyebrow">Fig. 2 · Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
+          <div><span class="eyebrow">Fig. 1 · Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
           <div class="explorer__controls js-only">
             <label>Benchmark<select id="benchmark-select"><option value="B1">B1 · Uniform aquifer</option><option value="B2">B2 · Low-K lens</option></select></label>
             <label>Model<select id="model-select"><option>CNN</option><option>ConvLSTM</option><option selected>PINN</option></select></label>
@@ -93,7 +87,7 @@ title: ""
       <article class="project">
         <a class="project__media" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
         <div class="project__body">
-          <div class="project__kicker">Fig. 3 · Participatory water planning</div>
+          <div class="project__kicker">Fig. 2 · Participatory water planning</div>
           <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
           <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
           <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
@@ -109,7 +103,7 @@ title: ""
       <article class="project">
         <a class="project__media" href="{{ '/projects/drainage-crossing-detection/' | relative_url }}" aria-label="Drainage-crossing detection case study"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></a>
         <div class="project__body">
-          <div class="project__kicker">Fig. 4 · Drainage-crossing classification</div>
+          <div class="project__kicker">Fig. 3 · Drainage-crossing classification</div>
           <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from LiDAR DEMs</a></h3>
           <p>Finding the culverts and bridges that elevation models miss, so derived stream networks don't break at every road.</p>
           <div class="metric metric--inline"><div class="metric__value">97.9%</div><div class="metric__label">classification accuracy, explained with Grad-CAM</div></div>
@@ -250,7 +244,7 @@ title: ""
       <a href="{{ '/cartography/fuller-temperature-map/' | relative_url }}" aria-label="Read about the Fuller map side project">
         <img src="{{ '/images/projects/fuller-temperature-map.webp' | relative_url }}" width="2000" height="1415" loading="lazy" alt="Temperature map on the unfolded triangular faces of the Fuller Dymaxion world projection.">
       </a>
-      <figcaption>Fuller Dymaxion temperature map · 2026</figcaption>
+      <figcaption>Fuller Dymaxion temperature map · Michael Edidem, March 2026</figcaption>
     </figure>
   </div>
 </section>
