@@ -12,5 +12,5 @@ main:
     url: "/about/"
 
   - title: "CV"
-    url: "https://docs.google.com/document/d/1dX2v8VH_DOtNWqp_QLMW70Rry4G3AY43fWnLcq2nwdc/preview"
+    url: "/cv/Michael_Edidem_CV.pdf"
     external: true
