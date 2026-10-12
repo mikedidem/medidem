@@ -159,14 +159,14 @@ h2 { font-size:clamp(1.8rem,3vw,2.4rem); }
 .hero__question { max-width:680px; color:var(--text); font-size:clamp(1.1rem,1.7vw,1.35rem); font-weight:600; line-height:1.5; margin:0 0 20px; }
 .flagship > .flagship__body { border-bottom:1px solid var(--border); padding-bottom:24px; }
 .flagship > .explorer { border-bottom:0; }
-/* Let's talk: globe rising from the bottom of the section */
+/* Let's talk: centered visitor globe (desktop only) */
 .cta--earthrise { padding:72px 0 0; overflow:hidden; text-align:center; }
 .cta__center { display:grid; justify-items:center; gap:18px; }
 .cta__center h2 { margin:0; }
 .cta__center p { margin:0 auto; max-width:560px; }
 .cta--earthrise .cta__actions { justify-content:center; }
-.cta__earth { --d:min(440px, 86vw); width:var(--d); margin:48px auto 0; }
-.cta__earth .visitor-globe { width:var(--d); height:calc(var(--d) * 0.66) !important; overflow:hidden; cursor:grab; }
+.cta__earth { --d:360px; width:var(--d); margin:40px auto 0; }
+.cta__earth .visitor-globe { width:var(--d); height:var(--d) !important; cursor:grab; }
 .visitor-globe canvas { display:block; }
 .cta__earth figcaption { padding:12px 0 24px; font-size:.72rem; line-height:1.6; color:var(--muted); }
 .cta__earth .globe-key { color:var(--text-2); }
