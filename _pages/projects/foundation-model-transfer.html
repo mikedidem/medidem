@@ -24,10 +24,9 @@ description: "Do models built on AlphaEarth foundation-model embeddings still fi
   <div class="container prose">
 
     <h2>Problem</h2>
-    <p>Culverts under roads don't appear in elevation data. Their locations have to be inferred from the terrain where a stream meets a road.</p>
     <figure>
-      <img src="{{ '/images/projects/drainage-context.webp' | relative_url }}" alt="Three LiDAR elevation tiles with inferred drainage crossings marked where stream channels meet roads." width="2132" height="612" loading="lazy">
-      <figcaption>Spatially implicit infrastructure: the crossing isn't visible, only the terrain pattern around it.</figcaption>
+      <img src="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" alt="Spatially implicit infrastructure: drainage crossings are often not represented in elevation data because road surfaces hide the culverts, so their locations must be inferred from terrain patterns at road-drainage intersections. Three LiDAR elevation tiles show inferred crossings." width="2880" height="1460" loading="lazy">
+      <figcaption>From the CaGIS 2026 talk.</figcaption>
     </figure>
     <div class="callout"><p><strong>Question:</strong> AlphaEarth embeddings cover the whole planet. Does a crossing model built on them still work outside the region it was trained in?</p></div>
 
