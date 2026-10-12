@@ -268,15 +268,32 @@ title: ""
 
 <section class="cta" id="contact">
   <div class="container cta__inner">
-    <div>
-      <h2>Let's talk</h2>
-      <p>Open to conversations about GeoAI, scientific ML and Earth-observation research roles and collaborations.</p>
+    <div class="cta__main">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Open to conversations about GeoAI, scientific ML and Earth-observation research roles and collaborations.</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--light" href="mailto:{{ site.author.email }}">Email me</a>
+        <a class="btn btn--ghost" href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a class="btn btn--ghost" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">CV</a>
+        <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Publications</a>
+      </div>
     </div>
-    <div class="cta__actions">
-      <a class="btn btn--light" href="mailto:{{ site.author.email }}">Email me</a>
-      <a class="btn btn--ghost" href="https://github.com/{{ site.author.github }}">GitHub</a>
-      <a class="btn btn--ghost" href="{{ '/cv/Michael_Edidem_CV.pdf' | relative_url }}">CV</a>
-      <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Publications</a>
-    </div>
+    <figure class="cta__globe">
+      <div class="visitor-globe"
+           data-endpoint="https://visitor-globe.mikedidem.workers.dev"
+           data-day="{{ '/images/globe/earth-day.jpg' | relative_url }}"
+           data-night="{{ '/images/globe/earth-night.jpg' | relative_url }}"
+           data-places="{{ '/assets/data/places.json' | relative_url }}"></div>
+      <figcaption>
+        <span class="globe-key"><span class="globe-key__place" aria-hidden="true">&#9671;</span> places I've been</span>
+        <span class="globe-key"><span class="globe-key__visit" aria-hidden="true">&#9679;</span> where this site has been read from</span>
+        <span class="globe-note">Day and night as they are right now. Approximate locations; no personal data stored. Imagery: NASA Earth Observatory.</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js" defer></script>
+<script src="{{ '/assets/js/visitor-globe.js' | relative_url }}" defer></script>
