@@ -28,18 +28,18 @@ description: "Do models built on AlphaEarth foundation-model embeddings still fi
       <img src="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" alt="Spatially implicit infrastructure: drainage crossings are often not represented in elevation data because road surfaces hide the culverts, so their locations must be inferred from terrain patterns at road-drainage intersections. Three LiDAR elevation tiles show inferred crossings." width="2880" height="1460" loading="lazy">
       <figcaption>From the CaGIS 2026 talk.</figcaption>
     </figure>
-    <div class="callout"><p><strong>Question:</strong> AlphaEarth embeddings cover the whole planet. Does a crossing model built on them still work outside the region it was trained in?</p></div>
+    <div class="callout"><p><strong>Research question:</strong> Earth foundation-model embeddings are globally available, but global coverage of a representation does not guarantee geographic validity of the decision rule learned from it. Do drainage-crossing models trained on AlphaEarth embeddings retain predictive skill under zero-shot transfer to geographically distinct regions, relative to models trained on terrain covariates alone?</p></div>
 
     <h2>Test design</h2>
-    <p>Train in Nebraska. Test unchanged in Illinois, North Dakota and California: no retraining, no local tuning.</p>
+    <p>Models are trained on labeled crossings in Nebraska and evaluated, without retraining or local calibration, in Illinois, North Dakota and California.</p>
     <figure>
       <img src="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" alt="Map of the contiguous United States: models are trained in Nebraska and tested without retraining in North Dakota, Illinois and California." width="1270" height="700" loading="lazy">
       <figcaption>Source region (Nebraska) and three zero-shot test regions.</figcaption>
     </figure>
-    <p>Inputs: DEM terrain variables, AlphaEarth embeddings (64-D), or both. Models: XGBoost and a CNN.</p>
+    <p>Three input representations, DEM-derived terrain covariates, 64-dimensional AlphaEarth embeddings and their fusion, are each paired with two downstream learners (XGBoost and a CNN), giving six configurations.</p>
 
     <h2>Results</h2>
-    <p>PR-AUC, higher is better.</p>
+    <p>Area under the precision–recall curve (PR-AUC) for each configuration.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Configuration</th><th class="num">Nebraska (in-domain)</th><th class="num">Illinois</th><th class="num">North Dakota</th><th class="num">California</th></tr></thead>
@@ -54,12 +54,12 @@ description: "Do models built on AlphaEarth foundation-model embeddings still fi
       </table>
     </div>
     <ul>
-      <li><strong>No configuration transfers uniformly.</strong> The best choice changes with the target region.</li>
-      <li><strong>AlphaEarth helps in some places and hurts in others,</strong> depending on the model and the region.</li>
+      <li><strong>Transfer is geographically conditional.</strong> No configuration retains its in-domain skill across all three target regions, and the best-performing configuration differs by region.</li>
+      <li><strong>The value of the embeddings is not uniform.</strong> Relative to terrain-only models, AlphaEarth inputs improved transfer in some model–region pairs and degraded it in others.</li>
     </ul>
 
     <h2>Next step: applicability, not just prediction</h2>
-    <p>Can we tell whether a model will work in a new region before any labels exist there? Applicability maps, such as the area of applicability (Meyer &amp; Pebesma, 2021), are the next step.</p>
+    <p>These results motivate moving from prediction maps to applicability maps: estimating, before target-region labels are available, whether a region's predictor space is represented in the training data, for example with the area of applicability and dissimilarity index (Meyer &amp; Pebesma, 2021).</p>
 
     <h2>Links</h2>
     <ul>
