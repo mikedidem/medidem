@@ -1,0 +1,44 @@
+---
+layout: portfolio
+permalink: /cartography/fuller-temperature-map/
+title: "A World Map for a Game"
+description: "A global temperature map on the Fuller Dymaxion projection, built in ArcGIS for a large-format game at the Fuller Futures Festival in Carbondale."
+---
+<header class="page-head">
+  <div class="container">
+    <a class="crumb" href="{{ '/#cartography' | relative_url }}">Back to home</a>
+    <span class="eyebrow">On the side · Cartography · 2026</span>
+    <h1>A World Map for a Game</h1>
+    <p>A fun side project, and a quick guide to one of the strangest-looking world maps there is.</p>
+  </div>
+</header>
+<div class="page-body">
+  <div class="container">
+    <figure class="cartography-plate">
+      <a href="{{ '/images/projects/fuller-temperature-map-detail.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Fuller temperature map at high resolution">
+        <img src="{{ '/images/projects/fuller-temperature-map.webp' | relative_url }}" srcset="{{ '/images/projects/fuller-temperature-map.webp' | relative_url }} 2000w, {{ '/images/projects/fuller-temperature-map-detail.webp' | relative_url }} 4000w" sizes="(max-width: 1200px) 100vw, 1152px" width="2000" height="1415" alt="Fuller Dymaxion world map showing land-temperature classes and sea-surface-temperature classes, with geographic labels, graticules and white facet boundaries.">
+      </a>
+      <figcaption>The map as exported from ArcGIS, reproduced for the web with its original legends. <a href="{{ '/images/projects/fuller-temperature-map-detail.webp' | relative_url }}" target="_blank" rel="noopener">View high-resolution map →</a></figcaption>
+    </figure>
+  </div>
+  <div class="container prose">
+    <h2>A map to gather around</h2>
+    <p>Most world maps are rectangles. This one is made of triangles. I built it in ArcGIS from temperature data supplied by Dr. Justin Schoof (SIUC Geography), for a large-format game at the Fuller Futures Festival in Carbondale, home of Buckminster Fuller's dome house.</p>
+    <p>It was a good excuse to get to know a projection most people have never seen. Here's how to read it, and why it looks the way it does.</p>
+    <h2>How to read the map</h2>
+    <p>The white triangular edges show the facets of the unfolded globe. Coastlines, geographic labels and graticules provide orientation across the unfamiliar arrangement of continents.</p>
+    <p>The upper legend describes the land-temperature classes in degrees Celsius, from below −40 °C to above 30 °C. The lower legend describes sea-surface-temperature classes in degrees Celsius with a separate blue palette. These are two separate legends: land and ocean colors should be interpreted using their corresponding scales.</p>
+    <h2>What is the Fuller projection?</h2>
+    <p>The Fuller projection, also called the Dymaxion map, represents the globe using the 20 triangular faces of an icosahedron. These faces are unfolded into a flat arrangement designed to avoid splitting continental landmasses. The familiar 1954 map was developed by R. Buckminster Fuller with cartographer Shoji Sadao. <a href="https://www.bfi.org/about-fuller/big-ideas/dymaxion-map/">Buckminster Fuller Institute →</a></p>
+    <p>Its connected-land view supports thinking about global relationships rather than treating each continent as a separate island in a rectangular world map. It also asks the reader to use coastlines, labels and graticules instead of relying on a familiar north-up layout.</p>
+    <div class="callout"><p><strong>A projection still makes tradeoffs.</strong> Fuller is neither equal-area nor conformal. Areas, shapes, distances, directions and angles can be distorted, and geographic lines are interrupted at facet boundaries. It is intended for whole-globe representation, rather than local distance measurement. <a href="https://pro.arcgis.com/en/pro-app/3.6/help/mapping/properties/fuller.htm">Esri’s projection documentation →</a></p></div>
+    <h2>Fuller’s Carbondale connection</h2>
+    <p>The Fuller Dome Home in Carbondale provides the local connection between this mapping project and Fuller’s legacy. The festival’s planned use of the map brings cartography into that public setting. <a href="https://fullerdomehome.com/">Fuller Dome Home →</a></p>
+    <h2>Further reading</h2>
+    <ul>
+      <li><a href="https://www.bfi.org/about-fuller/big-ideas/dymaxion-map/">Buckminster Fuller Institute: the Dymaxion map</a></li>
+      <li><a href="https://pro.arcgis.com/en/pro-app/3.6/help/mapping/properties/fuller.htm">Esri: Fuller projection properties, distortion and limitations</a></li>
+      <li><a href="https://fullerdomehome.com/">Fuller Dome Home, Carbondale</a></li>
+    </ul>
+  </div>
+</div>
