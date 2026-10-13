@@ -32,7 +32,8 @@ description: "Deep-learning classification and detection of drainage crossings (
     <h2>Problem</h2>
     <p>High-resolution digital elevation models (HRDEMs) from LiDAR capture road embankments but not the culverts and bridges that carry water underneath them. To a flow-routing algorithm every road looks like a dam, so derived stream networks are cut and diverted. Fixing this means knowing where the drainage crossings are, and mapping them by hand from aerial imagery doesn't scale.</p>
     <figure>
-      <img src="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" alt="Spatially implicit infrastructure: drainage crossings are often not represented in elevation data because road surfaces hide the culverts, so their locations must be inferred from terrain patterns at road-drainage intersections. Three LiDAR elevation tiles show inferred crossings." width="2880" height="1460" loading="lazy">
+      <a href="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the drainage-crossing problem slide at full size"><img src="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" alt="Spatially implicit infrastructure: drainage crossings are often not represented in elevation data because road surfaces hide the culverts, so their locations must be inferred from terrain patterns at road-drainage intersections. Three LiDAR elevation tiles show inferred crossings." width="2880" height="1460" loading="lazy"></a>
+      <figcaption><a href="{{ '/images/projects/drainage-problem-slide.webp' | relative_url }}" target="_blank" rel="noopener">View full size →</a></figcaption>
     </figure>
 
     <h2>Approach</h2>
@@ -68,8 +69,8 @@ description: "Deep-learning classification and detection of drainage crossings (
     </div>
     <p>The best models improve on the earlier CNN baseline by 3.4–4.9 percentage points. More layers didn't help: stacking all five derivatives cut accuracy to 0.897, so feature selection mattered more than feature volume.</p>
     <figure>
-      <img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Pairs of elevation patches and Grad-CAM saliency overlays, with attention concentrated where streams cross roads" loading="lazy">
-      <figcaption>Grad-CAM saliency: the model's attention falls where the stream channel meets the road embankment, the physically meaningful location.</figcaption>
+      <a href="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Grad-CAM saliency figure at full size"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Pairs of elevation patches and Grad-CAM saliency overlays, with attention concentrated where streams cross roads" loading="lazy"></a>
+      <figcaption>Grad-CAM saliency: the model's attention falls where the stream channel meets the road embankment, the physically meaningful location. <a href="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" target="_blank" rel="noopener">View full size →</a></figcaption>
     </figure>
 
     <h2>Contribution</h2>
@@ -81,8 +82,8 @@ description: "Deep-learning classification and detection of drainage crossings (
     <div class="callout"><p><strong>Research question:</strong> Earth foundation-model embeddings are globally available, but global coverage of a representation does not guarantee geographic validity of the decision rule learned from it. Do drainage-crossing models trained on AlphaEarth embeddings retain predictive skill under zero-shot transfer to geographically distinct regions, relative to models trained on terrain covariates alone?</p></div>
     <p>Models are trained on labeled crossings in Nebraska and evaluated, without retraining or local calibration, in Illinois, North Dakota and California.</p>
     <figure>
-      <img src="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" alt="Map of the contiguous United States: models are trained in Nebraska and tested without retraining in North Dakota, Illinois and California." width="1270" height="700" loading="lazy">
-      <figcaption>Source region (Nebraska) and three zero-shot test regions.</figcaption>
+      <a href="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the transfer-design map at full size"><img src="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" alt="Map of the contiguous United States: models are trained in Nebraska and tested without retraining in North Dakota, Illinois and California." width="1270" height="700" loading="lazy"></a>
+      <figcaption>Source region (Nebraska) and three zero-shot test regions. <a href="{{ '/images/projects/fm-transfer-design.webp' | relative_url }}" target="_blank" rel="noopener">View full size →</a></figcaption>
     </figure>
     <p>Three input representations, DEM-derived terrain covariates, 64-dimensional AlphaEarth embeddings and their fusion, are each paired with two downstream learners (XGBoost and a CNN), giving six configurations.</p>
     <p>Area under the precision–recall curve (PR-AUC):</p>
