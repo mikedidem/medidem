@@ -5,6 +5,7 @@ url         : "https://mikedidem.github.io"
 baseurl     : "/medidem"
 repository  : "mikedidem/medidem"
 timezone    : America/Chicago
+cv_url      : "https://docs.google.com/document/d/14kdMcDqHZe-kClINae_WIguH0JzedVTGU_pMqHedfeI/edit?usp=sharing"
 
 author:
   name   : "Michael Edidem"
