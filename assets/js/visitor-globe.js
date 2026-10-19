@@ -14,7 +14,6 @@
   const RECENT_DAYS = 7;
   const MAX_ARCS = 40;
   const SPIN_DEG_PER_SEC = 6;
-  const SPIN_REDUCED_DEG_PER_SEC = 2; // slow, steady turn when the OS asks for reduced motion; no pulses
   const DEFAULT_TILT = -18;
 
   const SAMPLE = [
@@ -370,7 +369,7 @@
     function frame(now) {
       const dt = Math.min(0.1, (now - last) / 1000);
       last = now;
-      if (!dragging) lambda += (reduced.matches ? SPIN_REDUCED_DEG_PER_SEC : SPIN_DEG_PER_SEC) * dt;
+      if (!dragging && !reduced.matches) lambda += SPIN_DEG_PER_SEC * dt;
       draw(now);
       if (visible) requestAnimationFrame(frame);
     }
