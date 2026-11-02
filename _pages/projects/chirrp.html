@@ -30,6 +30,10 @@ description: "A deployed system coupling an LLM interface with a physics-informe
     <h2>My role</h2>
     <p>I led the technical build. I trained and validated the physics-informed surrogate against MODFLOW-2005, built the web application, and connected the LLM layer, which parses requests and retrieves regulations, to the surrogate and the app. The paper is led by my advisor, Dr. Ruopu Li.</p>
 
+    <h2>Language-model integration and evaluation</h2>
+    <p>I connected the LLM layer to the surrogate and application, integrating LangGraph scenario parsing, retrieval-augmented generation and validated numerical inputs. The workflow includes a regex fallback, rejects out-of-range scenarios and supports on-demand MODFLOW cross-checking.</p>
+    <p>The scenario-parsing evaluation recorded 16 correct outcomes in 16 test cases, including rejection of out-of-range requests and withholding ambiguous ones. These results describe the reported test set; the full evaluation and limitations appear below.</p>
+
     <h2>Problem</h2>
     <p>Groundwater planning decisions such as how much to pump, and where, involve people who don't run numerical models. Each "what if" normally means a modeler setting up and running MODFLOW, so stakeholders see a few pre-chosen scenarios instead of exploring the trade-offs themselves.</p>
 
