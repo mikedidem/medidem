@@ -192,7 +192,6 @@ h2 { font-size:clamp(1.8rem,3vw,2.4rem); }
  .hero h1 { font-size:2.6rem; line-height:1.08; max-width:calc(100% - 110px); min-height:116px; margin-bottom:14px; }
  .stats { margin-top:24px; padding:18px 0; }
  .section { padding:44px 0; } .section-head { margin-bottom:20px; }
- .flagship .tags,.projects .tags { display:none; }
  .explorer.is-ready .explorer__controls { display:grid; grid-template-columns:1.8fr 1fr; width:100%; }
  .explorer select { width:100%; font-size:16px; padding-right:22px; }
  .explorer__readout { grid-template-columns:repeat(3,1fr); }
@@ -258,4 +257,18 @@ h2 { font-size:clamp(1.8rem,3vw,2.4rem); }
  .stat { padding:0 10px; }
  .current { grid-auto-columns:88%; }
  .keyline { grid-template-columns:1fr 1fr; gap:8px; } .keyline div { padding:10px 12px; } .keyline strong { font-size:.88rem; }
+}
+
+/* Phones: keep key tools visible on closed rows and project cards; tighter results demo */
+@media(min-width:721px) { .phone-only,.fold__peek { display:none; } }
+@media(max-width:720px) {
+ .fold__peek { display:block; margin-top:3px; font-size:.8rem; line-height:1.4; color:var(--muted); }
+ .fold[open] .fold__peek { display:none; }
+ .flagship .tags,.projects .tags { display:block; margin:0 0 14px; font-size:.8rem; line-height:1.5; color:var(--muted); }
+ .flagship .tags li,.projects .tags li { display:inline; padding:0; border:0; background:none; font:inherit; color:inherit; }
+ .flagship .tags li + li::before,.projects .tags li + li::before { content:'·'; margin:0 .4em; }
+ .explorer__head { gap:12px; margin-bottom:12px; }
+ .explorer__head .eyebrow { font-size:.66rem; letter-spacing:.06em; }
+ .residual-plot { margin:14px 0; } .residual-plot__title { margin-bottom:10px; } .residual-row { margin:8px 0; }
+ .explorer__table summary { margin:10px 0 0; }
 }

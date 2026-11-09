@@ -73,8 +73,9 @@ title: ""
           <div class="residual-row" data-model="PINN" data-selected="true"><span>PINN</span><div class="residual-track"><span class="residual-bar" style="width:2.85%"></span></div><span class="residual-value">0.13×</span></div>
         </div>
         <p class="explorer__note" id="result-note">B1 / PINN: high predictive accuracy with 0.42% mass-balance error. A residual below 1 measures agreement with the diagnostic operator; it does not establish superiority to MODFLOW.</p>
-        <p class="explorer__source">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
-        <details class="explorer__table"><summary>All six results &amp; original figure</summary>
+        <p class="explorer__source desk-only">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
+        <details class="explorer__table"><summary>All six results<span class="phone-only">, data note</span> &amp; original figure</summary>
+          <p class="explorer__source phone-only">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
           <div class="table-wrap"><table><caption>Groundwater surrogate evaluation · test window 26–30 days</caption><thead><tr><th>Benchmark</th><th>Model</th><th>RMSE (m)</th><th>R²</th><th>Residual ratio</th><th>Mass error (%)</th></tr></thead><tbody>
           {% for result in site.data.groundwater_results %}<tr><td>{{ result.benchmark }}</td><td>{{ result.model }}</td><td>{{ result.rmse }}</td><td>{{ result.r2 }}</td><td>{{ result.residual }}</td><td>{{ result.mass }}</td></tr>{% endfor %}
           </tbody></table></div>
@@ -214,28 +215,28 @@ title: ""
     </div>
     <div class="caps">
       <details class="cap fold" open>
-        <summary><h3>Agentic AI &amp; LLM Systems</h3></summary>
+        <summary><h3>Agentic AI &amp; LLM Systems</h3><span class="fold__peek">LLM workflows · RAG · LangGraph</span></summary>
         <p>AI agent development and evaluation, language-model workflows, retrieval-augmented generation, tool integration, and LangGraph.</p>
         <p class="cap__evidence">Agent development and evaluation: ongoing research. Language-model integration and scenario-parsing evaluation: <a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP</a>.</p>
       </details>
       <details class="cap fold" open>
-        <summary><h3>Scientific machine learning</h3></summary>
+        <summary><h3>Scientific machine learning</h3><span class="fold__peek">PINNs · Neural operators · MODFLOW-2005 · FloPy</span></summary>
         <p>Physics-informed and data-driven surrogate modeling · Neural operators and spatiotemporal prediction · PDE-residual, boundary-condition, and mass-balance diagnostics · MODFLOW-2005, FloPy</p>
         <p class="cap__evidence">Shown in: <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">groundwater diagnostics</a>, <a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP</a></p>
       </details>
       <details class="cap fold" open>
-        <summary><h3>Computer Vision &amp; Multimodal AI</h3></summary>
+        <summary><h3>Computer Vision &amp; Multimodal AI</h3><span class="fold__peek">Object detection · Segmentation · Explainable AI</span></summary>
         <p>Object detection, image classification, CNN- and transformer-based segmentation, vision-language models, explainable AI, multimodal feature analysis, and remote sensing.</p>
         <p class="cap__evidence">Vision-language models are part of ongoing research.</p>
         <p class="cap__evidence">Shown in: <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">drainage-crossing papers</a>, <a href="{{ '/projects/drainage-crossing-detection/#transfer' | relative_url }}">CaGIS 2026</a></p>
       </details>
       <details class="cap fold" open>
-        <summary><h3>Geospatial data</h3></summary>
+        <summary><h3>Geospatial data</h3><span class="fold__peek">GeoPandas · Rasterio · GDAL · Google Earth Engine</span></summary>
         <p>GeoPandas, Rasterio, GDAL, Shapely · PostGIS · Google Earth Engine · ArcGIS Pro, ERDAS Imagine · TauDEM</p>
         <p class="cap__evidence">Shown in: SIUC research pipelines, CDM Smith, UNT fellowship</p>
       </details>
       <details class="cap fold" open>
-        <summary><h3>ML Engineering &amp; Deployment</h3></summary>
+        <summary><h3>ML Engineering &amp; Deployment</h3><span class="fold__peek">Python · PyTorch · Docker · FastAPI</span></summary>
         <p><strong>Model development:</strong> Python, PyTorch, TensorFlow · Reproducible training and evaluation pipelines</p>
         <p><strong>Software &amp; deployment:</strong> Docker, FastAPI, REST APIs · Git/GitHub, pytest · Model inference and application integration</p>
         <p><strong>Scientific computing:</strong> GPU-based training, HPC workflows, computational benchmarking · SCALE-Sim accelerator performance simulation</p>
