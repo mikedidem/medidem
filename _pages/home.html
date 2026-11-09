@@ -11,12 +11,12 @@ title: ""
       <h1>Michael Edidem</h1>
       <p class="hero__tagline"><span>Geospatial AI</span><span>Scientific Machine Learning</span><span>Remote Sensing</span><span>Spatial &amp; Spatiotemporal Modeling</span></p>
       <p class="hero__summary">I develop and evaluate AI and computational methods for scientific problems, translating complex physical and geospatial challenges into reproducible machine-learning systems and decision-support tools.</p>
-      <p class="hero__summary">My work spans computer vision, scientific machine learning, numerical simulation, and model evaluation. My ongoing research extends into multimodal AI, vision-language models, and agentic workflows, with an emphasis on integration and reliability.</p>
+      <p class="hero__summary hero__summary--extra">My work spans computer vision, scientific machine learning, numerical simulation, and model evaluation. My ongoing research extends into multimodal AI, vision-language models, and agentic workflows, with an emphasis on integration and reliability.</p>
       <p class="hero__meta">PhD Researcher · Southern Illinois University Carbondale<br>Expected graduation 2027 · Carbondale, IL</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="#projects">View projects</a>
-        <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
-        <a class="btn" href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a class="btn btn--desk" href="{{ '/publications/' | relative_url }}">Publications</a>
+        <a class="btn btn--desk" href="https://github.com/{{ site.author.github }}">GitHub</a>
         <a class="btn" href="{{ site.cv_url }}" target="_blank" rel="noopener">View CV</a>
       </div>
     </div>
@@ -25,7 +25,7 @@ title: ""
   <div class="container">
     <div class="stats">
       <div class="stat"><div class="stat__value">5</div><div class="stat__label">peer-reviewed papers, 2 as first author</div></div>
-      <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations<br><small>5 completed · 2 scheduled (AGU 2026, AAG 2027)</small></div></div>
+      <div class="stat"><div class="stat__value">7</div><div class="stat__label">conference presentations<br><small>5 completed · 2 scheduled<span class="stat__extra"> (AGU 2026, AAG 2027)</span></small></div></div>
       <div class="stat"><div class="stat__value">1</div><div class="stat__label">deployed decision-support system (CHIRRP)</div></div>
       <div class="stat"><div class="stat__value">2025–26</div><div class="stat__label">SIUC University-wide Outstanding Thesis Award</div></div>
     </div>
@@ -154,26 +154,22 @@ title: ""
       <p>Geospatial AI and scientific ML methods, applied to Earth and environmental systems: groundwater, hydrography, infrastructure and land surface.</p>
     </div>
     <div class="themes">
-      <div class="theme">
-        <div class="theme__num">01</div>
-        <h3>Geospatial AI &amp; Spatial Intelligence</h3>
+      <details class="theme fold" open>
+        <summary><h3><span class="theme__num">01</span>Geospatial AI &amp; Spatial Intelligence</h3></summary>
         <p>Developing computational approaches to understand spatial relationships, geographic patterns, and variation across places, with applications in infrastructure and environmental systems.</p>
-      </div>
-      <div class="theme">
-        <div class="theme__num">02</div>
-        <h3>Computer Vision &amp; Multimodal AI</h3>
+      </details>
+      <details class="theme fold" open>
+        <summary><h3><span class="theme__num">02</span>Computer Vision &amp; Multimodal AI</h3></summary>
         <p>Developing and evaluating methods that extract and combine information from imagery, terrain, language, and other data sources, including ongoing research with vision-language models.</p>
-      </div>
-      <div class="theme">
-        <div class="theme__num">03</div>
-        <h3>Scientific Machine Learning &amp; Simulation</h3>
+      </details>
+      <details class="theme fold" open>
+        <summary><h3><span class="theme__num">03</span>Scientific Machine Learning &amp; Simulation</h3></summary>
         <p>Integrating machine learning with numerical simulation and physical knowledge to investigate predictive accuracy, physical consistency, generalization, and model behavior.</p>
-      </div>
-      <div class="theme">
-        <div class="theme__num">04</div>
-        <h3>AI Systems &amp; Scientific Applications</h3>
+      </details>
+      <details class="theme fold" open>
+        <summary><h3><span class="theme__num">04</span>AI Systems &amp; Scientific Applications</h3></summary>
         <p>Building reproducible computational workflows and decision-support applications, while exploring agentic AI for tool integration, workflow automation, and reliable scientific execution.</p>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -217,34 +213,34 @@ title: ""
       <h2>What I work with, and where it shows</h2>
     </div>
     <div class="caps">
-      <div class="cap">
-        <h3>Agentic AI &amp; LLM Systems</h3>
+      <details class="cap fold" open>
+        <summary><h3>Agentic AI &amp; LLM Systems</h3></summary>
         <p>AI agent development and evaluation, language-model workflows, retrieval-augmented generation, tool integration, and LangGraph.</p>
         <p class="cap__evidence">Agent development and evaluation: ongoing research. Language-model integration and scenario-parsing evaluation: <a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP</a>.</p>
-      </div>
-      <div class="cap">
-        <h3>Scientific machine learning</h3>
+      </details>
+      <details class="cap fold" open>
+        <summary><h3>Scientific machine learning</h3></summary>
         <p>Physics-informed and data-driven surrogate modeling · Neural operators and spatiotemporal prediction · PDE-residual, boundary-condition, and mass-balance diagnostics · MODFLOW-2005, FloPy</p>
         <p class="cap__evidence">Shown in: <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">groundwater diagnostics</a>, <a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP</a></p>
-      </div>
-      <div class="cap">
-        <h3>Computer Vision &amp; Multimodal AI</h3>
+      </details>
+      <details class="cap fold" open>
+        <summary><h3>Computer Vision &amp; Multimodal AI</h3></summary>
         <p>Object detection, image classification, CNN- and transformer-based segmentation, vision-language models, explainable AI, multimodal feature analysis, and remote sensing.</p>
         <p class="cap__evidence">Vision-language models are part of ongoing research.</p>
         <p class="cap__evidence">Shown in: <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">drainage-crossing papers</a>, <a href="{{ '/projects/drainage-crossing-detection/#transfer' | relative_url }}">CaGIS 2026</a></p>
-      </div>
-      <div class="cap">
-        <h3>Geospatial data</h3>
+      </details>
+      <details class="cap fold" open>
+        <summary><h3>Geospatial data</h3></summary>
         <p>GeoPandas, Rasterio, GDAL, Shapely · PostGIS · Google Earth Engine · ArcGIS Pro, ERDAS Imagine · TauDEM</p>
         <p class="cap__evidence">Shown in: SIUC research pipelines, CDM Smith, UNT fellowship</p>
-      </div>
-      <div class="cap">
-        <h3>ML Engineering &amp; Deployment</h3>
+      </details>
+      <details class="cap fold" open>
+        <summary><h3>ML Engineering &amp; Deployment</h3></summary>
         <p><strong>Model development:</strong> Python, PyTorch, TensorFlow · Reproducible training and evaluation pipelines</p>
         <p><strong>Software &amp; deployment:</strong> Docker, FastAPI, REST APIs · Git/GitHub, pytest · Model inference and application integration</p>
         <p><strong>Scientific computing:</strong> GPU-based training, HPC workflows, computational benchmarking · SCALE-Sim accelerator performance simulation</p>
         <p class="cap__evidence">Shown in: <a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP</a> · <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Groundwater evaluation package</a> · <a href="https://doi.org/10.1109/BigData62323.2024.10826077">Accelerator simulations</a></p>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -255,7 +251,7 @@ title: ""
       <span class="eyebrow">On the side</span>
       <h2>A world map for a game</h2>
       <p>Did you know Buckminster Fuller, the inventor of the geodesic dome, taught at SIU for twelve years? He also drew a world map made of triangles, with no "up".</p>
-      <p>For the 2026 Fuller Futures Festival in Carbondale, I rebuilt his map as a global temperature map for a public game. Here's the story, and how to read it.</p>
+      <p class="desk-only">For the 2026 Fuller Futures Festival in Carbondale, I rebuilt his map as a global temperature map for a public game. Here's the story, and how to read it.</p>
       <a href="{{ '/cartography/fuller-temperature-map/' | relative_url }}">Explore the map →</a>
     </div>
     <figure class="cartography-plate">
@@ -271,7 +267,7 @@ title: ""
     <div>
       <span class="eyebrow">About</span>
       <h2>Background</h2>
-      <p>I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. My background includes five years of applied geospatial work spanning surveying, enterprise GIS, and UAV-based utility inspections. In 2025, I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
+      <p><span class="desk-only">I'm a PhD researcher in Geographic Information Systems and Environmental Modeling at Southern Illinois University Carbondale. </span>My background includes five years of applied geospatial work spanning surveying, enterprise GIS, and UAV-based utility inspections. In 2025, I interned as a GIS Specialist at CDM Smith, working on AI-based wetland delineation and Bayesian PFAS modeling.</p>
       <p><a href="{{ '/about/' | relative_url }}">Experience, education and awards →</a></p>
     </div>
     <div>
@@ -308,4 +304,17 @@ title: ""
     </figcaption>
   </figure>
 </section>
+<script>
+  // Theme and tool rows are always open on wider screens and tap-to-open on phones.
+  (function () {
+    var rows = document.querySelectorAll('.fold');
+    var phone = window.matchMedia('(max-width: 720px)');
+    function sync() { rows.forEach(function (r) { r.open = !phone.matches; }); }
+    rows.forEach(function (r) {
+      r.querySelector('summary').addEventListener('click', function (e) { if (!phone.matches) e.preventDefault(); });
+    });
+    phone.addEventListener('change', sync);
+    sync();
+  })();
+</script>
 <script src="{{ '/assets/js/visitor-globe.js' | relative_url }}" defer></script>
