@@ -86,6 +86,25 @@
       });
     })();
   </script>
+  <script>
+    // Case studies: a swipeable jump bar built from the section headings (shown on phones only).
+    (function () {
+      var body = document.querySelector('.page-body');
+      if (!body || !document.querySelector('.page-head .keyline')) return;
+      var nav = document.createElement('nav');
+      nav.className = 'jump';
+      nav.setAttribute('aria-label', 'On this page');
+      body.querySelectorAll('h2').forEach(function (h) {
+        if (!h.id) h.id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        nav.appendChild(a);
+      });
+      body.insertBefore(nav, body.firstChild);
+      document.documentElement.classList.add('has-jump');
+    })();
+  </script>
   <script src="{{ '/assets/js/groundwater-explorer.js' | relative_url }}" defer></script>
 </body>
 </html>
