@@ -87,11 +87,12 @@ title: ""
 
     <div class="projects">
       <article class="project">
-        <a class="project__media project__media--flow" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><ol class="flow phone-only"><li>Plain-language request<small>text or voice</small></li><li>LLM scenario parsing<small>validated, in-envelope only</small></li><li>PINN surrogate<small>full space–time head field</small></li><li>MODFLOW cross-check<small>on demand</small></li><li>Decision readout<small>maps, comparisons, regulations</small></li></ol><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
+        <a class="project__media project__media--flow" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
         <div class="project__body">
           <div class="project__kicker">Participatory water planning</div>
           <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
           <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
+          <ol class="flow phone-only"><li>Plain-language request<small>text or voice</small></li><li>LLM scenario parsing<small>validated, in-envelope only</small></li><li>PINN surrogate<small>full space–time head field</small></li><li>MODFLOW cross-check<small>on demand</small></li><li>Decision readout<small>maps, comparisons, regulations</small></li></ol>
           <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
           <ul class="tags"><li>PINN</li><li>LLM + RAG</li><li>FastAPI</li><li>Docker</li></ul>
           <div class="links">
