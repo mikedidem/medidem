@@ -40,9 +40,11 @@ title: ""
       <p>Each project pairs a model with the evidence that it works and the limits of where it works.</p>
     </div>
 
-    <article class="flagship">
-      <div class="flagship__body">
-        <div>
+
+    <div class="projects projects--three">
+      <article class="project">
+        <a class="project__media" href="{{ '/projects/groundwater-surrogates/' | relative_url }}" aria-label="Groundwater surrogates case study"><img src="{{ '/images/projects/groundwater-methods.webp' | relative_url }}" alt="Groundwater workflow: benchmarks, MODFLOW simulation and data, CNN, ConvLSTM and PINN surrogates, and conservation diagnostics" loading="lazy"></a>
+        <div class="project__body">
           <div class="project__kicker">Scientific ML · Groundwater surrogates</div>
           <h3><a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Conservation Diagnostics for Groundwater Surrogates</a></h3>
           <p>A model can predict groundwater levels accurately and still violate physical laws. I developed a framework that evaluates predictive accuracy alongside conservation, boundary behavior and governing-equation residuals.</p>
@@ -52,7 +54,44 @@ title: ""
             <a href="https://github.com/mikedidem/gw_surrogate_evaluation">Code</a>
           </div>
         </div>
-      </div>
+      </article>
+
+      <article class="project">
+        <a class="project__media" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP participatory workflow: stakeholder inputs pass through an LLM social layer to a physics-informed surrogate physical layer" loading="lazy"></a>
+        <div class="project__body">
+          <div class="project__kicker">Participatory water planning</div>
+          <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
+          <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
+          <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
+          <ul class="tags"><li>PINN</li><li>LLM + RAG</li><li>FastAPI</li><li>Docker</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/chirrp/' | relative_url }}">Case study</a>
+            <a href="https://morule-hydro.hf.space">Live demo</a>
+            <a href="https://github.com/mikedidem/chirrp">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <a class="project__media" href="{{ '/projects/drainage-crossing-detection/' | relative_url }}" aria-label="Drainage-crossing detection case study"><img src="{{ '/images/projects/card-drainage.webp' | relative_url }}" alt="Three LiDAR DEM tiles with four inferred drainage crossings where streams meet roads" loading="lazy"></a>
+        <div class="project__body">
+          <div class="project__kicker">Drainage-crossing classification</div>
+          <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from LiDAR DEMs</a></h3>
+          <p>Finding the culverts and bridges that elevation models miss, so derived stream networks don't break at every road.</p>
+          <p>Esri trained its <a href="https://www.arcgis.com/home/item.html?id=3f4f36aeac9d4028853318edcdae89c8">Culvert Detection</a> model for ArcGIS on the dataset published from this work.</p>
+          <div class="metric metric--inline"><div class="metric__value">97.9%</div><div class="metric__label">classification accuracy, explained with Grad-CAM</div></div>
+          <ul class="tags"><li>EfficientNetV2</li><li>Faster R-CNN</li><li>YOLOv5</li><li>LiDAR / DEM</li></ul>
+          <div class="links">
+            <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Case study</a>
+            <a href="https://doi.org/10.1016/j.envsoft.2025.106338">Paper (EMS)</a>
+            <a href="https://doi.org/10.3389/frai.2025.1561281">Paper (Frontiers)</a>
+            <a href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Code</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="explorer-wrap">
       <div class="explorer" id="groundwater-explorer">
         <div class="explorer__head">
           <div><span class="eyebrow">Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
@@ -83,42 +122,6 @@ title: ""
         </details>
         <script id="groundwater-data" type="application/json">{{ site.data.groundwater_results | jsonify }}</script>
       </div>
-    </article>
-
-    <div class="projects">
-      <article class="project">
-        <a class="project__media" href="{{ '/projects/chirrp/' | relative_url }}" aria-label="CHIRRP case study"><img src="{{ '/images/projects/chirrp-architecture.png' | relative_url }}" alt="CHIRRP architecture: LLM social layer connected to a physics-informed surrogate physical layer" loading="lazy"></a>
-        <div class="project__body">
-          <div class="project__kicker">Participatory water planning</div>
-          <h3><a href="{{ '/projects/chirrp/' | relative_url }}">CHIRRP: Hydro-AI for Participatory Water Planning</a></h3>
-          <p>Stakeholders ask groundwater questions in plain language and get physics-informed answers, checkable against MODFLOW.</p>
-          <div class="metric metric--inline"><div class="metric__value">≈238×</div><div class="metric__label">faster than MODFLOW on CPU, at R² 0.98</div></div>
-          <ul class="tags"><li>PINN</li><li>LLM + RAG</li><li>FastAPI</li><li>Docker</li></ul>
-          <div class="links">
-            <a href="{{ '/projects/chirrp/' | relative_url }}">Case study</a>
-            <a href="https://morule-hydro.hf.space">Live demo</a>
-            <a href="https://github.com/mikedidem/chirrp">Code</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project">
-        <a class="project__media" href="{{ '/projects/drainage-crossing-detection/' | relative_url }}" aria-label="Drainage-crossing detection case study"><img src="{{ '/images/projects/drainage-saliency.jpg' | relative_url }}" alt="Grad-CAM saliency maps over elevation patches showing the model attending to drainage crossings under roads" loading="lazy"></a>
-        <div class="project__body">
-          <div class="project__kicker">Drainage-crossing classification</div>
-          <h3><a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Drainage-Crossing Detection from LiDAR DEMs</a></h3>
-          <p>Finding the culverts and bridges that elevation models miss, so derived stream networks don't break at every road.</p>
-          <p>Esri trained its <a href="https://www.arcgis.com/home/item.html?id=3f4f36aeac9d4028853318edcdae89c8">Culvert Detection</a> model for ArcGIS on the dataset published from this work.</p>
-          <div class="metric metric--inline"><div class="metric__value">97.9%</div><div class="metric__label">classification accuracy, explained with Grad-CAM</div></div>
-          <ul class="tags"><li>EfficientNetV2</li><li>Faster R-CNN</li><li>YOLOv5</li><li>LiDAR / DEM</li></ul>
-          <div class="links">
-            <a href="{{ '/projects/drainage-crossing-detection/' | relative_url }}">Case study</a>
-            <a href="https://doi.org/10.1016/j.envsoft.2025.106338">Paper (EMS)</a>
-            <a href="https://doi.org/10.3389/frai.2025.1561281">Paper (Frontiers)</a>
-            <a href="https://github.com/GeoFewLab/Drainge_CrossingClassification">Code</a>
-          </div>
-        </div>
-      </article>
     </div>
 
     <article class="current">
