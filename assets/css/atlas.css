@@ -118,37 +118,6 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible 
 .tags li { display:inline; padding:0; border:0; border-radius:0; background:none; font:inherit; color:inherit; }
 .tags li + li::before { content:'·'; margin:0 .45em; }
 
-/* ── Groundwater results explorer ───────────────────── */
-.explorer-wrap { margin-top:56px; }
-.explorer { padding:clamp(20px,3vw,36px); background:var(--surface); border:0; border-radius:16px; box-shadow:0 0 0 1px var(--border),0 24px 60px -40px rgba(10,20,30,.35); }
-.explorer__head { display:flex; align-items:start; justify-content:space-between; gap:24px; margin-bottom:20px; }
-.explorer__head .eyebrow { color:var(--muted); }
-.explorer h3 { margin:0; font-size:1.15rem; }
-.explorer__controls { display:flex; flex-wrap:wrap; gap:14px; }
-.explorer label { display:grid; gap:6px; color:var(--muted); font:.75rem var(--font); letter-spacing:.02em; text-transform:uppercase; }
-.explorer select { min-height:42px; padding:10px 30px 10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:2px; color:var(--text); font:.8rem var(--font); }
-.explorer__readout { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.readout { padding:18px; background:transparent; border:0; border-right:1px solid var(--border); border-radius:0; }
-.readout:last-child { border-right:0; }
-.readout span { display:block; margin-bottom:10px; color:var(--muted); font:.75rem var(--font); letter-spacing:.02em; }
-.readout strong { color:var(--text); font:600 clamp(1.35rem,3vw,2rem) var(--font); font-variant-numeric:tabular-nums; }
-.readout small { display:block; margin-top:8px; color:var(--muted); font-size:.72rem; }
-.residual-plot { margin:22px 0; }
-.residual-plot__title { margin-bottom:16px; color:var(--text-2); font:.75rem var(--font); letter-spacing:.02em; }
-.residual-row { display:grid; grid-template-columns:80px 1fr 66px; align-items:center; gap:12px; margin:13px 0; font:.8rem/normal var(--font); font-variant-numeric:tabular-nums; }
-.residual-row[data-selected="true"] { color:var(--accent); }
-.residual-track { position:relative; height:12px; background:var(--surface-2); border-radius:0; }
-.residual-track::after { content:''; position:absolute; left:25%; top:-4px; height:20px; width:1px; background:var(--text-2); }
-.residual-bar { display:block; height:100%; background:#9aa3ab; border-radius:0; transition:width .35s,background .25s; }
-.residual-row[data-selected="true"] .residual-bar { background:var(--accent); }
-.explorer__note { margin-bottom:10px; color:var(--text-2); font-size:.9rem; }
-.explorer__source { margin:0; color:var(--muted); font-size:.8rem; }
-.explorer__table { font-size:.8rem; }
-.explorer__table summary { margin:14px 0; color:var(--accent); cursor:pointer; }
-.explorer__table .table-wrap { margin:12px 0; }
-.js-only { display:none; }
-.explorer.is-ready .js-only { display:flex; }
-
 /* ── Current research, themes, capabilities ─────────── */
 .current { grid-template-columns:1fr 1fr; gap:40px 56px; margin-top:72px; padding:0; background:transparent; border:0; border-radius:0; }
 .current__head { grid-column:1 / -1; display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
@@ -215,7 +184,6 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible 
 @media(max-width:900px) {
   .hero__grid { grid-template-columns:minmax(0,1fr) 220px; gap:32px; }
   .hero__photo { width:220px; height:280px; }
-  .explorer__head { flex-direction:column; }
   .current { grid-template-columns:1fr; }
 }
 @media(max-width:767px) { .cta__earth { display:none; } .cta--earthrise { padding-bottom:52px; } }
@@ -259,21 +227,6 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible 
   .projects .tags li + li::before { margin:0 .4em; }
   .links { gap:0 18px; }
   .links a,.current__item a,.pub__links a { display:inline-flex; align-items:center; min-height:44px; }
-
-  /* Explorer */
-  .explorer { padding:18px; }
-  .explorer__head { gap:12px; margin-bottom:12px; }
-  .explorer.is-ready .explorer__controls { display:grid; grid-template-columns:1.8fr 1fr; width:100%; }
-  .explorer select { width:100%; padding-right:22px; font-size:16px; }
-  .readout { display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:6px; padding:12px 10px; }
-  .readout:first-child { padding-left:0; } .readout:last-child { padding-right:0; }
-  .readout span { margin:0; font-size:.7rem; line-height:1.3; }
-  .readout strong { font-size:1.15rem; }
-  .readout small { display:none; }
-  .residual-plot { margin:14px 0; } .residual-plot__title { margin-bottom:10px; }
-  .residual-row { grid-template-columns:65px 1fr 55px; gap:8px; margin:8px 0; font-size:.7rem; }
-  .explorer__note { font-size:.88rem; line-height:1.55; }
-  .explorer__table summary { margin:0; padding:12px 0; }
 
   /* Current research: swipeable cards */
   .current { grid-template-columns:none; grid-template-rows:auto 1fr; grid-auto-flow:column; grid-auto-columns:82%; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-left:16px; margin:40px -16px 0; padding:8px 16px 4px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
@@ -326,9 +279,6 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible 
   .hero h1 { max-width:calc(100% - 96px); min-height:102px; font-size:2.25rem; }
   .hero__photo { width:84px; height:102px; }
   .stat { padding:0 10px; }
-  .explorer.is-ready .explorer__controls { grid-template-columns:1fr; }
-  .readout { padding:10px 6px; } .readout span { font-size:.66rem; } .readout strong { font-size:1rem; }
-  .residual-row { grid-template-columns:62px 1fr 46px; gap:6px; }
   .current { grid-auto-columns:88%; }
   .keyline { grid-template-columns:1fr 1fr; gap:8px; } .keyline div { padding:10px 12px; } .keyline strong { font-size:.88rem; }
 }

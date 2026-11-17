@@ -92,39 +92,6 @@ title: ""
       </article>
     </div>
 
-    <div class="explorer-wrap">
-      <div class="explorer" id="groundwater-explorer">
-        <div class="explorer__head">
-          <div><span class="eyebrow">Groundwater conservation diagnostics</span><h3>High accuracy. Different physics.</h3></div>
-          <div class="explorer__controls js-only">
-            <label>Benchmark<select id="benchmark-select"><option value="B1">B1 · Uniform aquifer</option><option value="B2">B2 · Low-K lens</option></select></label>
-            <label>Model<select id="model-select"><option>CNN</option><option>ConvLSTM</option><option selected>PINN</option></select></label>
-          </div>
-        </div>
-        <div class="explorer__readout" aria-live="polite" aria-atomic="true">
-          <div class="readout"><span>Predictive fit / R²</span><strong id="result-r2">0.99994</strong><small id="result-rmse">RMSE 0.0092 m</small></div>
-          <div class="readout"><span>PDE residual / baseline</span><strong id="result-residual">0.13×</strong><small>MODFLOW reference = 1×</small></div>
-          <div class="readout"><span>Mass-balance error</span><strong id="result-mass">0.42%</strong><small>Relative to well extraction</small></div>
-        </div>
-        <div class="residual-plot" role="img" aria-label="B1 residual ratios: CNN 84, ConvLSTM 88.6, PINN 0.13. MODFLOW reference is 1." id="residual-plot">
-          <p class="residual-plot__title">PDE residual ratio · log scale 0.1–1,000 · vertical marker = MODFLOW (1×)</p>
-          <div class="residual-row" data-model="CNN"><span>CNN</span><div class="residual-track"><span class="residual-bar" style="width:73.11%"></span></div><span class="residual-value">84×</span></div>
-          <div class="residual-row" data-model="ConvLSTM"><span>ConvLSTM</span><div class="residual-track"><span class="residual-bar" style="width:73.69%"></span></div><span class="residual-value">88.6×</span></div>
-          <div class="residual-row" data-model="PINN" data-selected="true"><span>PINN</span><div class="residual-track"><span class="residual-bar" style="width:2.85%"></span></div><span class="residual-value">0.13×</span></div>
-        </div>
-        <p class="explorer__note" id="result-note">B1 / PINN: high predictive accuracy with 0.42% mass-balance error. A residual below 1 measures agreement with the diagnostic operator; it does not establish superiority to MODFLOW.</p>
-        <p class="explorer__source desk-only">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
-        <details class="explorer__table"><summary>All six results<span class="phone-only">, data note</span> &amp; original figure</summary>
-          <p class="explorer__source phone-only">Reported evaluation results, not a live simulation. Synthetic aquifers · test window 26–30 days. <a href="{{ '/projects/groundwater-surrogates/' | relative_url }}">Methods, results &amp; limitations →</a></p>
-          <div class="table-wrap"><table><caption>Groundwater surrogate evaluation · test window 26–30 days</caption><thead><tr><th>Benchmark</th><th>Model</th><th>RMSE (m)</th><th>R²</th><th>Residual ratio</th><th>Mass error (%)</th></tr></thead><tbody>
-          {% for result in site.data.groundwater_results %}<tr><td>{{ result.benchmark }}</td><td>{{ result.model }}</td><td>{{ result.rmse }}</td><td>{{ result.r2 }}</td><td>{{ result.residual }}</td><td>{{ result.mass }}</td></tr>{% endfor %}
-          </tbody></table></div>
-          <img src="{{ '/images/projects/gw-residuals.png' | relative_url }}" alt="Original PDE residual comparison for CNN, ConvLSTM and PINN on both benchmarks" loading="lazy">
-        </details>
-        <script id="groundwater-data" type="application/json">{{ site.data.groundwater_results | jsonify }}</script>
-      </div>
-    </div>
-
     <article class="current">
       <div class="current__head">
         <h3>Current Research</h3>
